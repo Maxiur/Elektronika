@@ -65,9 +65,10 @@
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("/photos/Tektronix.png", width: 80%),
+  image("./photos/Tektronix.png", width: 80%),
   alt: "Chart png here",
   caption: [Panel frontowy oscyloskopu cyfrowego Tektronix MSO22
+  
   ],
 ) <oscyloskop>
 // To ref in code use @photo_name_to_reference
@@ -100,7 +101,7 @@ W ramach zadania praktycznego przeprowadzono konfigurację parametrów oscylosko
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("/screens/Cw_1_1_skala_widok.png", width: 80%),
+  image("./screens/Cw_1_1_skala_widok.png", width: 80%),
   alt: "Chart png here",
   caption: [Ustawiony oscyloskop
   ],
@@ -115,7 +116,7 @@ W ramach zadania praktycznego przeprowadzono konfigurację parametrów oscylosko
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("/photos/generator.png", width: 70%),
+  image("./photos/generator.png", width: 70%),
   alt: "Chart png here",
   caption: [Panel frontowy generatora funkcyjnego Tektronix AFG 3022C
   ],
@@ -130,7 +131,7 @@ A) *Podawanie sygnału na wejście oscyloskopu*: Przebiega po ówczesnym włącz
     #figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4068.jpg", width: 100%),
+      image("./photos/IMG_4068.jpg", width: 100%),
       alt: "Chart png here",
       caption: [Wyjście sygnału na oscyloskop
       ],
@@ -140,7 +141,7 @@ A) *Podawanie sygnału na wejście oscyloskopu*: Przebiega po ówczesnym włącz
     #figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4069.jpg", width: 100%),
+      image("./photos/IMG_4069.jpg", width: 100%),
       alt: "Chart png here",
       caption: [Doprowadzenie sygnału do wejścia CH2 
       ],
@@ -174,7 +175,7 @@ F) *Zmiana ustawień kanałów*: Dostosowano amplitudę i położenie pionowe pr
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("/screens/trojkatny15KHZ.png", width: 95%),
+      image("./screens/trojkatny15KHZ.png", width: 95%),
       alt: "Chart png here",
       caption: [Sygnał trójkątny (skala 10 X, zła amplituda)
       ],
@@ -184,7 +185,7 @@ F) *Zmiana ustawień kanałów*: Dostosowano amplitudę i położenie pionowe pr
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("/screens/trójkatny większy.png", width: 95%),
+      image("./screens/trójkatny większy.png", width: 95%),
       alt: "Chart png here",
       caption: [skalowanie pionowe @trojkat
       ],
@@ -202,7 +203,7 @@ Dzięki temu dopasowano impedancję wyjściową generatora do wysoko-omowego wej
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("/screens/Adjust Oscyloskopu, synchronizacja z generatorem.png", width: 95%),
+      image("./screens/Adjust Oscyloskopu, synchronizacja z generatorem.png", width: 95%),
       alt: "Chart png here",
       caption: [Poprawna amplituda po synchronizacji oscyloskopu
       ],
@@ -212,7 +213,7 @@ Dzięki temu dopasowano impedancję wyjściową generatora do wysoko-omowego wej
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("/screens/Amplituda poprawna(1.55Vpp), max 775mV min -775mV.png", width: 95%),
+      image("./screens/Amplituda poprawna(1.55Vpp), max 775mV min -775mV.png", width: 95%),
       alt: "Chart png here",
       caption: [Potwierdzenie amplitudy $1.55 V_(p p)$ ($+- 775 m V$)
       ],
@@ -225,7 +226,7 @@ Dzięki temu dopasowano impedancję wyjściową generatora do wysoko-omowego wej
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("/photos/IMG_4068.jpg", width: 50%),
+  image("./photos/IMG_4068.jpg", width: 50%),
   alt: "Chart png here",
   caption: [Potwierdzenie wartości na generatorze
   ],
@@ -263,7 +264,7 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("/pomiary/AB oraz AC.png", width: 110%),
+      image("./pomiary/AB oraz AC.png", width: 110%),
       alt: "Chart png here",
       caption: [Fala sinusoidalna ($1V$, $3k H z$)
       ],
@@ -273,7 +274,7 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     #figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4072.jpg", width: 90%),
+      image("./photos/IMG_4072.jpg", width: 90%),
       alt: "Chart png here",
       caption: [Fala sinusoidalna - zapis z generatora
       ],
@@ -286,7 +287,7 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("/pomiary/BB oraz BC.png", width: 110%),
+      image("./pomiary/BB oraz BC.png", width: 110%),
       alt: "Chart png here",
       caption: [Fala trójkątna ($2.5V$, $10k H z$, $10^o$)
       ],
@@ -296,7 +297,7 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     #figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4071.jpg", width: 90%),
+      image("./photos/IMG_4071.jpg", width: 90%),
       alt: "Chart png here",
       caption: [Fala trójkątna - zapis z generatora
       ],
@@ -309,7 +310,7 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("/pomiary/CB oraz CC.png", width: 110%),
+      image("./pomiary/CB oraz CC.png", width: 110%),
       alt: "Chart png here",
       caption: [Fala prostokątna ($0.5V$, $50k H z$, $180^o$)
       ],
@@ -319,7 +320,7 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     #figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4070.jpg", width: 90%),
+      image("./photos/IMG_4070.jpg", width: 90%),
       alt: "Chart png here",
       caption: [Fala prostokątna - zapis z generatora
       ],
@@ -453,7 +454,7 @@ Są to specyficzne trajektorie powstające w wyniku powyższego złożenia drga�
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("/photos/krzywe.png", width: 70%),
+  image("./photos/krzywe.png", width: 70%),
   alt: "Chart png here",
   caption: [Teoretyczne wykresy krzywych Lissajous
   ],
@@ -474,7 +475,7 @@ Są to specyficzne trajektorie powstające w wyniku powyższego złożenia drga�
   figure(
     kind: "chart",
     supplement: [Wykres],
-    image("/screens/3_2 90 faza.png", width: 100%),
+    image("./screens/3_2 90 faza.png", width: 100%),
     caption: [Krzywa Lissajous ($3:2, 90^o$)],
   ),
 
@@ -485,13 +486,13 @@ Są to specyficzne trajektorie powstające w wyniku powyższego złożenia drga�
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4079.jpg", width: 100%),
+      image("./photos/IMG_4079.jpg", width: 100%),
       caption: [Generator 1],
     ), // <-- Tu był brakujący przecinek
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4078.jpg", width: 100%),
+      image("./photos/IMG_4078.jpg", width: 100%),
       caption: [Generator 2],
     ),
   ),
@@ -509,7 +510,7 @@ Uzyskana krzywa nie pokrywa się z teoretyczną na @krzywe (indexując od 1) (4 
   figure(
     kind: "chart",
     supplement: [Wykres],
-    image("/screens/1_3 45 faza.png", width: 100%),
+    image("./screens/1_3 180 faza.png", width: 100%),
     caption: [Krzywa Lissajous ($1:3, 45^o$)],
   ),
 
@@ -520,13 +521,13 @@ Uzyskana krzywa nie pokrywa się z teoretyczną na @krzywe (indexując od 1) (4 
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4075.jpg", width: 100%),
+      image("./photos/IMG_4075.jpg", width: 100%),
       caption: [Generator 1],
     ), // <-- Tu był brakujący przecinek
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4074.jpg", width: 100%),
+      image("./photos/IMG_4074.jpg", width: 100%),
       caption: [Generator 2],
     ),
   ),
@@ -544,7 +545,7 @@ Uzyskano krzywą praktycznie zgodną z @krzywe (3 wiersz 3 kolumna) z dokładno�
   figure(
     kind: "chart",
     supplement: [Wykres],
-    image("/screens/3_2 90 faza kolejna.png", width: 100%),
+    image("./screens/3_2 90 faza kolejna.png", width: 100%),
     caption: [Krzywa Lissajous ($2:3, 45^o$)],
   ),
 
@@ -555,13 +556,13 @@ Uzyskano krzywą praktycznie zgodną z @krzywe (3 wiersz 3 kolumna) z dokładno�
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4074.jpg", width: 100%),
+      image("./photos/IMG_4074.jpg", width: 100%),
       caption: [Generator 1],
     ), // <-- Tu był brakujący przecinek
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4075.jpg", width: 100%),
+      image("./photos/IMG_4075.jpg", width: 100%),
       caption: [Generator 2],
     ),
   ),
@@ -579,7 +580,7 @@ Uzyskano krzywą zgodną z @krzywe (4 wiersz 3 kolumna), lecz przy pomocy innej 
   figure(
     kind: "chart",
     supplement: [Wykres],
-    image("/screens/4_5 faza 90.png", width: 100%),
+    image("./screens/4_5 faza 90.png", width: 100%),
     caption: [Krzywa Lissajous ($4:5, 90^o$)],
   ),
 
@@ -590,13 +591,13 @@ Uzyskano krzywą zgodną z @krzywe (4 wiersz 3 kolumna), lecz przy pomocy innej 
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4077.jpg", width: 90%),
+      image("./photos/IMG_4077.jpg", width: 90%),
       caption: [Generator 1],
     ),
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4076.jpg", width: 90%),
+      image("./photos/IMG_4076.jpg", width: 90%),
       caption: [Generator 2],
     ),
   ),
@@ -614,7 +615,7 @@ Uzyskano krzywą zgodną z przewidywaniami teoretycznymi.
   figure(
     kind: "chart",
     supplement: [Wykres],
-    image("/screens/1_2 faza 90.png", width: 100%),
+    image("./screens/1_2 faza 90.png", width: 100%),
     caption: [Krzywa Lissajous ($1:2, 90^o$)],
   ),
 
@@ -625,13 +626,13 @@ Uzyskano krzywą zgodną z przewidywaniami teoretycznymi.
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4084.jpg", width: 100%),
+      image("./photos/IMG_4084.jpg", width: 100%),
       caption: [Generator 1],
     ),
     figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("/photos/IMG_4085.jpg", width: 100%),
+      image("./photos/IMG_4085.jpg", width: 100%),
       caption: [Generator 2],
     ),
   ),
@@ -684,7 +685,7 @@ W przeprowadzonym ćwiczeniu , oczekiwana częstotliwość wypadkowa wynosi $102
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("/screens/sinusy 1000 i 1050.png", width: 80%),
+  image("./screens/sinusy 1000 i 1050.png", width: 80%),
   alt: "Chart png here",
   caption: [Przygotowanie dwóch fal sinusoidalnych
   ],
@@ -697,7 +698,7 @@ W przeprowadzonym ćwiczeniu , oczekiwana częstotliwość wypadkowa wynosi $102
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("/screens/Nałozenie fali.png", width: 85%),
+  image("./screens/Nałozenie fali.png", width: 85%),
   alt: "Chart png here",
   caption: [Zsumowanie dwóch fal sinusoidalnych, wizualizacja zjawiska dudnień
   ],
@@ -714,7 +715,7 @@ W środkowej części wykresu widoczne jest wyraźne przewężenie węzłów, gd
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("/screens/czestotliwość dudnień.png", width: 85%),
+  image("./screens/czestotliwość dudnień.png", width: 85%),
   alt: "Chart png here",
   caption: [Zmierzenie za pomocą kursorów częstotliwości fali wypadkowej
   ],
@@ -730,7 +731,7 @@ Na @pomiar_fali przedstawiono pomiar okresu pojedynczego drgania wewnątrz paczk
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("/screens/pomiar czestotliwosci (50kHz).png", width: 85%),
+  image("./screens/pomiar czestotliwosci (50kHz).png", width: 85%),
   alt: "Chart png here",
   caption: [Pomiar częstotliwości dudnień za pomocą kursorów
   ],
@@ -753,7 +754,7 @@ Wyniki wykazują doskonałą zgodność z wartością teoretyczną obliczoną w 
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("/photos/IMG_4087.jpg", width: 70%),
+  image("./photos/IMG_4087.jpg", width: 70%),
   alt: "Chart png here",
   caption: [Widok układu pomiarowy po podłączeniu trójnika BNC oraz wyjść/wejść do generatora i oscyloskopu.
   ],
@@ -769,7 +770,7 @@ Ze względu na czas, nie udało się ukończyć tego ćwiczenia. Ukończono labo
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("/screens/kopia fali.png", width: 70%),
+  image("./screens/kopia fali.png", width: 70%),
   alt: "Chart png here",
   caption: [Weryfikacja poprawności kopii fali przy użyciu trójnika BNC
   ],
@@ -784,7 +785,7 @@ Widoczne fale na @fale nachodzą na siebie, więc rozgałęzienie napięcia prze
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("/photos/IMG_4088.jpg", width: 70%, height: 57%),
+  image("./photos/IMG_4088.jpg", width: 70%, height: 57%),
   alt: "Chart png here",
   caption: [Przygotowany układ
   ],
