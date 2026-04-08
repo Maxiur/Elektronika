@@ -1,0 +1,13 @@
+Sprawdzic czy oscyloskop z generatorem się zgraja 
+
+kondensator 143nF
+R2 = 0.784kOhm
+tau = 0.11ms
+
+Po dodaniu R1
+R1 = 3.66kOhm
+tau - 0.635ms
+
+r = 47ohm
+
+cewka = 1.1mH
