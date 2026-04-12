@@ -641,6 +641,9 @@ $ phi = arccos(0.364) approx 68.7^o $
   ],
 )
 
+== Wnioski
+Zarejestrowane wyniki pomiarów potwierdzają, że badany czwórnik CR pełni funkcję filtru górnoprzepustowego. Jak wynika z wykresów charakterystyk (@amplituda, @faza), układ silnie tłumi sygnały o niskich częstotliwościach, wprowadzając jednocześnie znaczne dodatnie przesunięcie fazowe (dążące do +90 stopni). Wraz ze wzrostem częstotliwości, wzmocnienie układu rośnie asymptotycznie do $k approx 1$, a przesunięcie fazowe maleje do zera.
+
 = Ćwiczenie 2.2: Odpowiedź układu na różne wymuszenia
 Celem tej części ćwiczenia było sprawdzenie odpowiedzi badanego układu różniczkującego na pobudzenie sygnałem odkształconym (falą prostokątną oraz trójkątną) dla różnych wartości okresu $T$ względem stałej czasowej układu $tau$.
 
@@ -1221,7 +1224,7 @@ W przeciwieństwie do układu różniczkującego, optymalne warunki do całkowan
       supplement: [Wykres],
       image("./screens/5tau.png", width: 100%),
       caption: [Okres $T = 5 tau$]
-    )
+    ) <5tau>
   ],
   [
     #figure(
@@ -1261,9 +1264,23 @@ W przeciwieństwie do układu różniczkującego, optymalne warunki do całkowan
       supplement: [Wykres],
       image("./screens/10tau.png", width: 100%),
       caption: [Okres $T = 10 tau$ (brak całkowania)]
-    )
-  ]
+  ) <10tau>
+]
 )
+
+== Wyznaczenie czasu narastania i stałej czasowej dla $T = 5 tau$
+
+Wartości czasu narastania impulsu oraz stałej czasowej odczytano bezpośrednio z siatki oscylogramu zarejestrowanego dla wymuszenia o okresie $T = 5 tau$ (zob. @5tau). 
+
+Podstawa czasu na osi poziomej oscyloskopu wynosiła $2 "ms/div"$. Każda duża działka jest podzielona na 5 mniejszych części, co oznacza, że jedna mała podziałka odpowiada $0.4 "ms"$.
+
+*1. Czas narastania impulsu* \
+Czas narastania to czas, w którym sygnał rośnie od 10% do 90% swojej amplitudy. Na podstawie oscylogramu (@5tau) odczytano, że etap ten zajmuje w poziomie około 3,5 małej podziałki (od momentu tuż po rozpoczęciu narastania do punktu bliskiego szczytowi przebiegu). Wobec tego:
+$ t_n approx 4 times 0.4 "ms" = 1.60 "ms" $
+
+*2. Stała czasowa układu całkującego* \
+Stała czasowa to czas, po którym sygnał wyjściowy osiąga wartość równą około 63,2% amplitudy maksymalnej. Punkt ten wypada na siatce w odległości około 1,6 małej podziałki od początku cyklu narastania. Zatem:
+$ tau approx 1.6 times 0.4 "ms" = 0.64 "ms" $
 
 == Ekstra: Dowód całkowania 
 Aby ostatecznie dowieść, że badany układ RC dokonuje operacji całkowania, poddano analizie oscylogram zarejestrowany dla fali prostokątnej o bardzo małym okresie ($T approx 0.5 tau$).
