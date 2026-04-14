@@ -1376,7 +1376,32 @@ Następnie dostrojono generator do częstotliwości, dla której amplituda wyjś
   caption: [Punkt rezonansu w układzie RLC.]
 ) <rezonans_wyznaczony>
 
-Zmierzona częstotliwość rezonansowa to $12.70 "kHz"$. Zjawisko charakteryzuje się nałożeniem sygnałów w fazie (kąt bliski zeru) oraz brakiem tłumienia sygnału wyjściowego ($U_"we" approx U_"wy"$). 
+Zmierzona częstotliwość rezonansowa to $12.70 "kHz"$. Zjawisko charakteryzuje się nałożeniem sygnałów w fazie (kąt bliski zeru) oraz brakiem tłumienia sygnału wyjściowego ($U_"we" approx U_"wy"$).
+
+= Pozostałe Materiały
+
+== Karta Pracy
+
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./karta1.png", width: 95%),
+  caption: [Uzupełniona karta pracy - strona 1]
+)
+
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./karta2.png", width: 95%),
+  caption: [Uzupełniona karta pracy - strona 2]
+)
+
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./karta3.png", width: 95%),
+  caption: [Uzupełniona karta pracy - strona 3]
+)
 
 // // ==========================================
 // // Chart
