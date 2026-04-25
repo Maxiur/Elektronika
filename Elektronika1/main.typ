@@ -1,8 +1,13 @@
 // Import external packages
 // Math and symbols
 #import "@preview/physica:0.9.7": *
+// Podpisy tabel lądują na górze
+#show figure.where(kind: "table"): set figure.caption(position: top)
 // Drawing circuit diagrams
 #import "@preview/circuiteria:0.2.0": *
+
+// Numerowanie wzorów
+#set math.equation(numbering: "(1)")
 
 // Fix numbering and document look
 #set heading(numbering: "1.")
@@ -34,7 +39,7 @@
 // ======================================
 
 #text(size: 14pt, weight: 600)[
-  #align(right)[14.03.2026]
+  #align(right)[15.03.2026]
 ]
 
 #title[
@@ -57,6 +62,11 @@
 === Teoria
 - *Oscyloskop cyfrowy*: Przyrząd pomiarowy służący do wizualizacji i analizy zmiennych sygnałów napięciowych w dziedzinie czasu. Umożliwia bezpośredni pomiar m.in. amplitudy , częstotliwości oraz obserwację przesunięć fazowych badanych przebiegów
 - *Generator funkcyjny*: Służy do generowania napięć o zadanym kształcie (np. sinus, trójkąt, prostokąt) oraz precyzyjnie strojonej amplitudzie, częstotliwości i fazie.
+
+*Wspomniane parametry sygnałów oznaczają*:
+- *Amplituda* ($V$): Maksymalne odchylenie wartości napięcia sygnału od poziomu odniesienia (zera). Często odczytuje się to jako napięcie międzyszczytowe, czyli całkowitą różnicę między najwyższym a najniższym punktem przebiegu.
+- *Częstotliwość* ($f$): Liczba pełnych cykli przebiegu okresowego występujących w ciągu jednej sekundy. Wyrażana w hercach [Hz]. Częstotliwość jest odwrotnością okresu ($T$).
+- *Przesunięcie fazowe* ($Delta phi$): Różnica faz między dwoma przebiegami o tej samej częstotliwości. Obrazuje ona, o jaki kąt (lub czas) jeden sygnał jest opóźniony bądź przyspieszony względem drugiego.
 
 === Zapoznanie się z działaniem oscyloskopu
 // ==========================================
@@ -327,44 +337,7 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     ) <photo2>],
 )
 
-// ==========================================
-// Chart
-// ==========================================
-// #figure(
-//   kind: "chart",
-//   supplement: [Wykres],
-//   image("/pomiary/AB oraz AC.png", width: 70%),
-//   alt: "Chart png here",
-//   caption: [Chart description
-//   ],
-// ) <chart_name_to_reference>
-
-// // To ref in code use @chart_name_to_reference
-// // ==========================================
-// // Chart
-// // ==========================================
-// #figure(
-//   kind: "chart",
-//   supplement: [Wykres],
-//   image("/pomiary/BB oraz BC.png", width: 70%),
-//   alt: "Chart png here",
-//   caption: [Chart description
-//   ],
-// ) <chart_name_to_reference>
-
-// // To ref in code use @chart_name_to_reference
-// // ==========================================
-// // Chart
-// // ==========================================
-// #figure(
-//   kind: "chart",
-//   supplement: [Wykres],
-//   image("/pomiary/CB oraz CC.png", width: 70%),
-//   alt: "Chart png here",
-//   caption: [Chart description
-//   ],
-// ) <chart_name_to_reference>
-// // To ref in code use @chart_name_to_reference
+_Uwaga: Brak zrzutów ekranu dla pomiarów amplitudy kursorami oraz częstotliwości funkcją Measure wynika z niedopatrzenia w trakcie zajęć._ 
 
 === Analiza dokładności poszczególnych metod pomiaru
 
@@ -390,6 +363,31 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
       it
     }
   }
+
+=== Metodyka pomiaru "na oko"
+$div$ (div) jedna działka siatki na ekranie oscyloskopu.
+
+*Sygnał sinusolidalny*
+Pomiar "na oko" zrealizowano poprzez ręczne zliczenie działek siatki zajmowanych przez jeden pełen okres sygnału. Dla sygnału sinusoidalnego, przy przykładowej podstawie czasu ustawionej na $100 mu s/"div"$, jeden okres zajmował na ekranie około 3.3 działki.
+
+Okres sygnału wyniósł więc: 
+$ T = 3.3 times 100 mu s = 330 mu s $
+
+Częstotliwość obliczono ze wzoru $f = 1/T$, co dało wynik:
+$ f = 1 / (330 times 10^(-6) "s") approx 3.03 "kHz" $
+
+*Sygnał trójkątny:*
+Podczas pomiaru amplitudy fali trójkątnej, wierzchołek przebiegu wizualnie sięgał mniej więcej 30/40% skali ustawionej na $1V/div$, dlatego zanotowano wartość 2.4V. Częstotliwość odczytano podobnie jak dla sygnału sinusoidalnego, z tym że jeden okres zajmował dokładnie 2.5 działek, co przy podstawie czasu 40 $mu s/div$ dało wynik 10 kHz.
+
+*Sygnał prostokątny:*
+Odczyt wizualny dla fali prostokątnej to w tym przypadku czysta formalność. Sygnał posiada tzw. płaski dach, który łatwo odnieść do poziomych linii siatki, co eliminuje błąd szacowania w pionie. 
+
+$ T = 5 "div" times 4 mu "s/div" = 20 mu "s" $ <wzor_okres_prost>
+
+Z tego bezpośrednio wyliczamy częstotliwość:
+$ f = 1 / T = 1 / (20 times 10^(-6) "s") = 50 "kHz" $ <wzor_czest_prost>
+
+Brak konieczności zgadywania "ułamków kratek" sprawił, że wynik pomiaru wizualnego siadł w punkt i perfekcyjnie pokrył się z ustawieniami generatora.
 
   #figure(
     kind: "table",
@@ -428,6 +426,9 @@ Celem zadania było wyznaczenie amplitudy ($V_(m a x)$) oraz częstotliwości dl
     ],
   ) <methods_comparison_table>
 ]
+
+=== Wnioski
+Powyższe wyniki idealnie obrazują, że metoda wizualna jest silnie podatna na subiektywną ocenę ułamków działki przez operatora, stąd rozbieżność z wartością z generatora.
 
 == Ćwiczenie 1.2: Krzywe Lissajous
 
@@ -775,7 +776,6 @@ Ze względu na czas, nie udało się ukończyć tego ćwiczenia. Ukończono labo
   caption: [Weryfikacja poprawności kopii fali przy użyciu trójnika BNC
   ],
 ) <fale>
-// To ref in code use @chart_name_to_reference
 
 Widoczne fale na @fale nachodzą na siebie, więc rozgałęzienie napięcia przebiegło pomyślnie.
 
@@ -790,7 +790,17 @@ Widoczne fale na @fale nachodzą na siebie, więc rozgałęzienie napięcia prze
   caption: [Przygotowany układ
   ],
 ) <photo_name_to_reference>
-// To ref in code use @photo_name_to_reference
+
+== Podsumowanie
+
+Laboratorium pozwoliło na praktyczne zapoznanie się z podstawowymi przyrządami w pracowni elektronicznej: oscyloskopem cyfrowym oraz generatorem funkcyjnym. Opanowano kluczowe umiejętności, takie jak konfiguracja kanałów, ustawianie odpowiedniej podstawy czasu i czułości napięciowej oraz co najważniejsze – prawidłowa synchronizacja urządzeń (dopasowanie impedancji na High Z).
+
+Porównanie trzech metod pomiarowych jednoznacznie wykazało, że metoda wizualna ("na oko") jest obarczona największym błędem subiektywnym. Metoda kursorowa znacznie poprawia dokładność, jednak to wykorzystanie wbudowanych algorytmów oscyloskopu (funkcja _Measure_) gwarantuje najwyższą precyzję, szybkość i powtarzalność wyników.
+
+Dodatkowo z częściowym powodzeniem zaobserwowano zjawiska wynikające ze składania drgań harmonicznych (krzywe Lissajous oraz dudnienia). Wyniki praktyczne potwierdziły niektóre przewidywania teoretyczne. Mimo drobnych odchyleń przesunięć fazowych przy generowaniu krzywych Lissajous.
+
+=== Załącznik: Notatki
+#read("./notatki1.txt")
 
 #pagebreak()
 

@@ -1,0 +1,18 @@
+Przestawiać skale na dole 1X, oscyloskop skaluje nam domyślnie 10X
+
+Synchronizacja z oscyloskopem, ustawienie na Load High Z
+
+Top Menu -> Output Menu -> Load Impedance -> // Ustawienie Load High Z
+
+Zwrócić uwagę, że amplituda wpisana początkowo, może ulec zmianie,
+np. może zostać przemnożona przez 2X
+
+Pomiar można wykonać za pomocą Cursorów (oscyloskop prawy górny róg)
+
+
+Pomiary:
+	A) fala sinusoidalna, A = 1V, f = 3kHz
+	B) fala trójkątna, A = 2.5V, f = 10kHz, fi = 10 degree
+	C) fala prostokątna, A = 0.5V, f = 50kHz, fi = 180 degree
+
+Metody pomiarów, jak wykonywać, kiedy wykorzystywać (bo kiedyś jedna jest lepsza itp.) Krzywe Lissauojs, dudnienie
