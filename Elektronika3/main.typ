@@ -83,8 +83,8 @@ Zapoznać się ze schematem ideowym układu wzmacniacza operacyjnego.
 ) <plytka_ua>
 
 Zanotowane wartości napięć na pinach zasilacza:
-- Napięcie dodatnie: *11.98V*
-- Napięcie ujemne: *-12.01V*
+- Napięcie dodatnie: *11.89V*
+- Napięcie ujemne: *-11.90V*
 - Napięcie masy: *0V*
 
 = Ćwiczenie 3.2: Wzmacniacz odwracający fazę o wzmocnieniu 10
@@ -166,7 +166,7 @@ Aby uzyskać wzmocnienie 10-krotne, należy dobrać opornik $R_f$ tak, aby był 
   supplement: [Zdjęcie],
   image("./2_2/odwracajacy_faze.png", width: 70%),
   alt: "Chart png here",
-  caption: [Schemat wzmacniacza operacyjnego z zaznaczonymi wejściami odwracającym i nieodwracającym
+  caption: [Schemat wzmacniacza operacyjnego odwracającego
   ],
 ) <wzmacniacz_odwracajacy> 
 
@@ -177,8 +177,8 @@ W naszym przypadku $R_f = R_2$, dlatego do budowy układu wykorzystano następuj
 - $R_f = $ *100 kΩ*
 
 Przybliżone wartości zmierzone miernikiem:
-- $R_1 = $ *9.97 kΩ*
-- $R_f = $ *98.9 kΩ*
+- $R_1 = $ *9.997 kΩ*
+- $R_f = $ *100.1 kΩ*
 
 == Zmontowany układ
 
@@ -228,8 +228,6 @@ Zgodnie z teorią na wyjściu uzyskujemy sygnał o 10-krotnie większej amplitud
 == Charakterystyka częstotliwościowa i fazowa
 Przeprowadzono pomiary dla rosnącej częstotliwości w celu wyznaczenia górnej częstotliwości granicznej ($f_g$), przy której sygnał wyjściowy staje się 10 razy mniejszy.
 
-== Pomiary do charakterystyki częstotliwościowej i fazowej
-// Dokładna lista plików odczytana z Twojego screena:
 #let pliki = (
   // Hz
   "100hz.png", "200hz.png", "300hz.png", "400hz.png", "500hz.png", "600hz.png", "700hz.png", "800hz.png", "900hz.png",
@@ -237,7 +235,7 @@ Przeprowadzono pomiary dla rosnącej częstotliwości w celu wyznaczenia górnej
   "1khz.png", "2khz.png", "3khz.png", "4khz.png", "5khz.png", "6khz.png", "7khz.png", "8khz.png", "9khz.png",
   // kHz (dziesiątki)
   "10khz.png", "20khz.png", "30khz.png", "40khz.png", "50khz.png", "60khz.png", "70khz.png", "80khz.png", "90khz.png",
-  // kHz (setki - uwaga, celowo usunięto 600 i 800 bo ich nie masz!)
+  // kHz (setki)
   "100khz.png", "200khz.png", "300khz.png", "500khz.png", "700khz.png", "900khz.png",
   // MHz
   "1.1mhz.png", "1.4mhz.png", "1.7mhz.png", "2mhz.png", "2.3mhz.png" 
@@ -250,8 +248,10 @@ Przeprowadzono pomiary dla rosnącej częstotliwości w celu wyznaczenia górnej
   align: center,
   ..pliki.map(plik => [
     #figure(
+      kind: "chart",
+      supplement: [Wykres],
       image("./2_2/" + plik, width: 95%), 
-      caption: [Częstotliwość: #plik.replace(".png", "").replace(" (graniczna)", "")]
+      caption: [Częstotliwość: #plik.replace(".png", "").replace("khz", " kHz").replace("mhz", " MHz").replace("hz", " Hz")],
     )
   ])
 )
@@ -262,32 +262,217 @@ Przeprowadzono pomiary dla rosnącej częstotliwości w celu wyznaczenia górnej
   supplement: [Wykres],
   image("./2_2/2.6mhz (graniczna).png", width: 80%, height: 29%),
   caption: [2.6 MHz - wartość graniczna, przy której sygnał wyjściowy jest 10 razy mniejszy od wejściowego],
-) <charakterystyka>
+)
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_2/wykres_fazy.png", width: 80%),
+  caption: [Charakterystyka fazowa - przesunięcie fazowe między wejściem a wyjściem w funkcji częstotliwości],
+) <wykres_faza>
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_2/wykres_amplitudy.png", width: 80%),
+  caption: [Charakterystyka częstotliwościowa (amplitudowa) - zależność wzmocnienia od częstotliwości],
+) <wykres_amplituda>
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_2/charakterystyka_zbiorcza.png", width: 80%),
+  caption: [Zbiorcza charakterystyka amplitudowo-fazowa wzmacniacza odwracającego],
+) <wykres_zbiorczy>
+
+Jak widać na wykresie, wzmacniacz zapewnia stabilne wzmocnienie na poziomie x10 aż do okolic 30-40 kHz. Po przekroczeniu tej granicy zaczyna się równia pochyła – układ po prostu przestaje wyrabiać. Amplituda spada, a faza całkowicie odchodzi od teoretycznych 180 stopni. Winowajcą jest ograniczone pasmo przenoszenia samego układu scalonego, które przy wysokich częstotliwościach zaczynają działać jak filtr dolnoprzepustowy.
+
+#figure(
+  kind: "table",
+  supplement: [Tabela],
+  table(
+    columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+    align: center + horizon,
+    table.header([*Częstotliwość*], [*$U_"we"$ ["V"]*], [*$U_"wy"$ ["V"]*], [*Wzmocnienie $K$ [-]*], [*Faza $|phi|$ [$degree$]*]),
+    
+    [$100$ Hz], [$1.04$], [$10.400$], [$10.00$], [$180.00$],
+    [$200$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.30$],
+    [$300$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.30$],
+    [$400$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.40$],
+    [$500$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.50$],
+    [$600$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.50$],
+    [$700$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.60$],
+    [$800$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.70$],
+    [$900$ Hz], [$1.04$], [$10.240$], [$9.85$], [$180.80$],
+    [$1$ kHz], [$1.04$], [$10.240$], [$9.85$], [$180.90$],
+    [$2$ kHz], [$1.04$], [$10.240$], [$9.85$], [$181.50$],
+    [$3$ kHz], [$1.04$], [$10.160$], [$9.77$], [$182.30$],
+    [$4$ kHz], [$1.04$], [$10.160$], [$9.77$], [$183.30$],
+    [$5$ kHz], [$1.04$], [$10.160$], [$9.77$], [$183.90$],
+    [$6$ kHz], [$1.04$], [$10.160$], [$9.77$], [$184.60$],
+    [$7$ kHz], [$1.04$], [$10.080$], [$9.69$], [$185.40$],
+    [$8$ kHz], [$1.04$], [$10.080$], [$9.69$], [$186.30$],
+    [$9$ kHz], [$1.04$], [$10.000$], [$9.62$], [$187.10$],
+    [$10$ kHz], [$1.04$], [$10.000$], [$9.62$], [$187.90$],
+    [$20$ kHz], [$1.04$], [$9.680$], [$9.49$], [$199.20$],
+    [$30$ kHz], [$1.04$], [$8.560$], [$8.39$], [$216.20$],
+    [$40$ kHz], [$1.04$], [$6.960$], [$6.69$], [$230.20$],
+    [$50$ kHz], [$1.04$], [$5.760$], [$5.54$], [$239.10$],
+    [$60$ kHz], [$1.04$], [$4.800$], [$4.62$], [$245.00$],
+    [$70$ kHz], [$1.04$], [$4.160$], [$4.00$], [$249.50$],
+    [$80$ kHz], [$1.04$], [$3.680$], [$3.54$], [$252.70$],
+    [$90$ kHz], [$1.04$], [$3.360$], [$3.23$], [$255.40$],
+    [$100$ kHz], [$1.04$], [$2.960$], [$2.85$], [$257.70$],
+    [$200$ kHz], [$1.04$], [$1.500$], [$1.44$], [$270.40$],
+    [$300$ kHz], [$1.04$], [$0.984$], [$0.95$], [$277.80$],
+    [$500$ kHz], [$1.04$], [$0.592$], [$0.56$], [$290.50$],
+    [$700$ kHz], [$1.04$], [$0.416$], [$0.39$], [$301.90$],
+    [$900$ kHz], [$1.04$], [$0.328$], [$0.32$], [$312.90$],
+    [$1$ MHz], [$1.04$], [$0.256$], [$0.25$], [$325.10$],
+    [$1.4$ MHz], [$1.02$], [$0.208$], [$0.20$], [$337.10$],
+    [$1.7$ MHz], [$1.01$], [$0.160$], [$0.16$], [$344.10$],
+    [$2$ MHz], [$1.00$], [$0.132$], [$0.13$], [$352.90$],
+    [$2.3$ MHz], [$0.98$], [$0.116$], [$0.12$], [$11.12$],
+    [$2.6$ MHz], [$0.98$], [$0.100$], [$0.10$], [$21.26$]
+  ),
+  caption: [Zbiorcze zestawienie pomiarów charakterystyki wzmacniacza odwracającego.]
+) <tabela_pomiary_odwracajacy>
 
 
-== Ćwiczenie 3.3: Sumator o dwóch wejściach
-=== Teoria
+== Podsumowanie
+- *Działanie układu:* Zmontowany wzmacniacz odwracający spełnia swoje zadanie – zgodnie z teorią odwraca fazę sygnału wejściowego o 180 stopni.
+- *Wzmocnienie:* Stosunek użytych rezystorów sprzężenia sprawdził się w praktyce, dając nam równe, dziesięciokrotne przebicie amplitudy dla niskich i średnich częstotliwości.
+- *Praktyka:* Pomiary udowodniły, że "idealny wzmacniacz operacyjny" istnieje tylko na papierze. W rzeczywistości każdy układ ma swoją częstotliwość graniczną, po której układ (wzmacniacz) traci swoje nominalne parametry.
+
+
+
+= Ćwiczenie 3.3: Sumator o dwóch wejściach
+== Treść
+Zmontować sumator o dwóch wejściach.  Zsumować drgania sinusoidalne z dwóch generatorów,
+obserwować zdudnienia przebiegów.
+== Teoria
 Sumator dodaje do siebie sygnały z kilku wejść. Podanie dwóch fal sinusoidalnych o podobnej amplitudzie i nieznacznie różnej częstotliwości powoduje powstanie zjawiska dudnień, czyli fali o pulsującej amplitudzie.
 
-=== Zadanie praktyczne
-Wykorzystane rezystory w układzie sumatora:
-- $R_1 = $ *[TUTAJ]*
-- $R_2 = $ *[TUTAJ]*
-- $R_f = $ *[TUTAJ]*
+== Schemat układu
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./2_3/sumator.png", width: 80%),
+  caption: [Schemat ideowy dwuwejściowego sumatora napięć odwracającego],
+)
 
-Zaobserwowano nałożenie dwóch fal sinusoidalnych z generatorów.
+== Budowa układu
+Wykorzystane rezystory i napięcia w układzie sumatora:
+- $U_1 = $ *[1.000 V]*
+- $U_2 = $ *[1.000 V]*
+- $R_1 = $ *[9.98 kΩ]*
+- $R_2 = $ *[9.99 kΩ]*
+- $R_f = $ *[10.1 kΩ]*
 
-// #figure(
-//   kind: "chart",
-//   supplement: [Wykres],
-//   image("./screens/placeholder.png", width: 85%), // PODMIEŃ NA FOTE DUDNIEN
-//   caption: [Wizualizacja zjawiska dudnień po zsumowaniu fal],
-// ) <dudnienia3>
+== Zmontowany układ
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  rotate(-90deg)[
+    #image("./2_3/IMG_4220.png", width: 70%, height: 50%) 
+  ],
+  caption: [Zmontowany układ sumatora na płytce prototypowej UA-1],
+) <wykres_zbiorczy>
+
+== Pomiary i obserwacje
+Na początek zsumowanie dwóch fal sinusoidalnych o równych częstotliwościach $U_1 = U_2 = 1.000 V$:
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/suma sygnalow.png", width: 85%),
+  caption: [Przebieg czasowy sumy dwóch sygnałów o identycznej częstotliwości.],
+) <dudnienia3>
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/dudnienie.png", width: 85%),
+  caption: [Potwierdzenie sumy sygnałów na wyjściu sumatora.],
+)
 
 Pomiary kursorami:
-- Częstotliwość sygnału zsumowanego (wypadkowa): *[WPISZ Hz]*
-- Częstotliwość obwiedni (dudnień): *[WPISZ Hz]*
+- Częstotliwość sygnału wyjściowego: *[1.000 kHz]* (pozostaje niezmieniona)
+- Częstotliwość sygnału zsumowanego: *[2.160 Hz]*
+- Faza sygnału zsumowanego: *[180.4 °]*
 
+Co się zgadza z naszymi oczekiwaniami – otrzymujemy falę o częstotliwości równej sumie częstotliwości obu sygnałów wejściowych, a jego faza jest odwrócona o 180 stopni względem sygnałów wejściowych.
+
+== Dudnienia
+Dudnienia to zjawisko powstające w wyniku nakładania się dwóch fal o podobnych częstotliwościach. W naszym przypadku, gdy $U_1$ i $U_2$ mają bardzo zbliżone częstotliwości, na wyjściu obserwujemy falę o pulsującej amplitudzie. Częstotliwość dudnień jest wtedy dokładnie równa wartości bezwzględnej z różnicy częstotliwości obu sygnałów wejściowych ($f_"dud" = |f_1 - f_2|$).
+
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: center,
+  figure(
+    kind: "photo",
+    supplement: [Zdjęcie],
+    // Uwaga: sprawdź czy to na pewno .png, wcześniej wrzucałeś .jpg!
+    image("./2_3/generator_1V.png", width: 95%),
+    caption: [Generator 1: $f_1 = 1.000 "kHz"$]
+  ),
+  figure(
+    kind: "photo",
+    supplement: [Zdjęcie],
+    image("./2_3/generator_1050V.png", width: 95%),
+    caption: [Generator 2: $f_2 = 1.050 "kHz"$]
+  )
+)
+
+Aby zaobserwować dudnienia w praktyce, ustawiliśmy niewielką różnicę częstotliwości. Przy $f_1 = 1000 "Hz"$ oraz $f_2 = 1050 "Hz"$, różnica wynosi $Delta f = 50 "Hz"$.
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/dudnienie_widac.png", width: 85%),
+  caption: [Widok dudnień z oddalonej skali],
+) <dudnienia_ogolne>
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/dudnien wiecej.png", width: 85%),
+  caption: [Dudnienia w przybliżonej skali],
+) <dudnienia_wiecej>
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/dudnienie duze.png", width: 85%),
+  caption: [Dudnienia duże. Pomiary kursorami wskazują częstotliwość obwiedni wynoszącą 49.48 Hz.],
+) <dudnienia_maks>
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/dudnienie male.png", width: 85%),
+  caption: [Dudnienia małe. Pomiary kursorami dla sygnału wewnątrz obwiedni wskazują częstotliwość 1.03 kHz.],
+) <dudnienia_min>
+
+Warto zaznaczyć, że sygnał "wypełniający" obwiednię dudnień oscyluje z częstotliwością równą średniej arytmetycznej obu sygnałów wejściowych:
+$ f_"śr" = (f_1 + f_2) / 2 = (1000 "Hz" + 1050 "Hz") / 2 = 1025 "Hz" $
+
+Wynik ten z dobrym przybliżeniem idealnie pokrywa się z wartością $1.03 "kHz"$, którą zmierzyliśmy ręcznie kursorami.
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/dudnienie duze.png", width: 85%),
+  caption: [Dudnienia dla $Delta f = 50 "Hz"$],
+) 
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_3/dudnienie male.png", width: 85%),
+  caption: [Średnia arytmetyczna częstotliwości obu sygnałów wejściowych, czyli $f_"dud" = (f_1 + f_2) / 2$],
+) 
 
 == Ćwiczenie 3.4: Przerzutnik Schmitta
 === Teoria
