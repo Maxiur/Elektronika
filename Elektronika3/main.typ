@@ -127,9 +127,9 @@ do wejścia układu i zsumowana z sygnałem wejściowym.
 
 Wzmacniacz operacyjny (patrz @wzmacniacz) jest to wzmacniacz o bardzo dużym wzmocnieniu napięciowym, który posiada dwa wejścia i jedno wyjście.
 
-Jedno z wejść ($U_-$) nosi nazwę odwracającego – sygnał wyjściowy jest przesunięty w fazie o 180° względem sygnału przyłożonego do tego wejścia.
+Jedno z wejść ($U_-$) nosi nazwę odwracającego - sygnał wyjściowy jest przesunięty w fazie o 180° względem sygnału przyłożonego do tego wejścia.
 
-Drugie wejście ($U_+$) nazywa się nieodwracającym – sygnał wyjściowy jest zgodny w fazie z sygnałem podanym na to wejście.
+Drugie wejście ($U_+$) nazywa się nieodwracającym - sygnał wyjściowy jest zgodny w fazie z sygnałem podanym na to wejście.
 
 Wzmacniacz operacyjny realizuje funkcję:
 $ U_"WY" = K(U_+ - U_-) $
@@ -194,6 +194,9 @@ Przybliżone wartości zmierzone miernikiem:
   ],
   caption: [Układ wzmacniacza odwracającego zmontowany na płytce UA-1],
 ) <uklad_foto>
+
+\
+== Pomiary
 
 #figure(
   kind: "chart",
@@ -269,23 +272,23 @@ Przeprowadzono pomiary dla rosnącej częstotliwości w celu wyznaczenia górnej
   supplement: [Wykres],
   image("./2_2/wykres_fazy.png", width: 80%),
   caption: [Charakterystyka fazowa - przesunięcie fazowe między wejściem a wyjściem w funkcji częstotliwości],
-) <wykres_faza>
+)
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
   image("./2_2/wykres_amplitudy.png", width: 80%),
   caption: [Charakterystyka częstotliwościowa (amplitudowa) - zależność wzmocnienia od częstotliwości],
-) <wykres_amplituda>
+)
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
   image("./2_2/charakterystyka_zbiorcza.png", width: 80%),
   caption: [Zbiorcza charakterystyka amplitudowo-fazowa wzmacniacza odwracającego],
-) <wykres_zbiorczy>
+) 
 
-Jak widać na wykresie, wzmacniacz zapewnia stabilne wzmocnienie na poziomie x10 aż do okolic 30-40 kHz. Po przekroczeniu tej granicy zaczyna się równia pochyła – układ po prostu przestaje wyrabiać. Amplituda spada, a faza całkowicie odchodzi od teoretycznych 180 stopni. Winowajcą jest ograniczone pasmo przenoszenia samego układu scalonego, które przy wysokich częstotliwościach zaczynają działać jak filtr dolnoprzepustowy.
+Jak widać na wykresie, wzmacniacz zapewnia stabilne wzmocnienie na poziomie x10 aż do okolic 30-40 kHz. Po przekroczeniu tej granicy zaczyna się równia pochyła - układ przestaje wyrabiać. Amplituda spada, a faza całkowicie odchodzi od teoretycznych 180 stopni. Winowajcą jest ograniczone pasmo przenoszenia samego układu scalonego, które przy wysokich częstotliwościach zaczynają działać jak filtr dolnoprzepustowy.
 
 #figure(
   kind: "table",
@@ -336,11 +339,11 @@ Jak widać na wykresie, wzmacniacz zapewnia stabilne wzmocnienie na poziomie x10
     [$2.6$ MHz], [$0.98$], [$0.100$], [$0.10$], [$21.26$]
   ),
   caption: [Zbiorcze zestawienie pomiarów charakterystyki wzmacniacza odwracającego.]
-) <tabela_pomiary_odwracajacy>
+)
 
 
 == Podsumowanie
-- *Działanie układu:* Zmontowany wzmacniacz odwracający spełnia swoje zadanie – zgodnie z teorią odwraca fazę sygnału wejściowego o 180 stopni.
+- *Działanie układu:* Zmontowany wzmacniacz odwracający spełnia swoje zadanie - zgodnie z teorią odwraca fazę sygnału wejściowego o 180 stopni.
 - *Wzmocnienie:* Stosunek użytych rezystorów sprzężenia sprawdził się w praktyce, dając nam równe, dziesięciokrotne przebicie amplitudy dla niskich i średnich częstotliwości.
 - *Praktyka:* Pomiary udowodniły, że "idealny wzmacniacz operacyjny" istnieje tylko na papierze. W rzeczywistości każdy układ ma swoją częstotliwość graniczną, po której układ (wzmacniacz) traci swoje nominalne parametry.
 
@@ -377,7 +380,14 @@ Wykorzystane rezystory i napięcia w układzie sumatora:
     #image("./2_3/IMG_4220.png", width: 70%, height: 50%) 
   ],
   caption: [Zmontowany układ sumatora na płytce prototypowej UA-1],
-) <wykres_zbiorczy>
+)
+
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./2_3/IMG_4230.png", width: 70%), 
+  caption: [Widok układu z bliska],
+)
 
 == Pomiary i obserwacje
 Na początek zsumowanie dwóch fal sinusoidalnych o równych częstotliwościach $U_1 = U_2 = 1.000 V$:
@@ -386,7 +396,7 @@ Na początek zsumowanie dwóch fal sinusoidalnych o równych częstotliwościach
   supplement: [Wykres],
   image("./2_3/suma sygnalow.png", width: 85%),
   caption: [Przebieg czasowy sumy dwóch sygnałów o identycznej częstotliwości.],
-) <dudnienia3>
+)
 
 #figure(
   kind: "chart",
@@ -400,7 +410,7 @@ Pomiary kursorami:
 - Częstotliwość sygnału zsumowanego: *[2.160 Hz]*
 - Faza sygnału zsumowanego: *[180.4 °]*
 
-Co się zgadza z naszymi oczekiwaniami – otrzymujemy falę o częstotliwości równej sumie częstotliwości obu sygnałów wejściowych, a jego faza jest odwrócona o 180 stopni względem sygnałów wejściowych.
+Co się zgadza z naszymi oczekiwaniami - otrzymujemy falę o częstotliwości równej sumie częstotliwości obu sygnałów wejściowych, a jego faza jest odwrócona o 180 stopni względem sygnałów wejściowych.
 
 == Dudnienia
 Dudnienia to zjawisko powstające w wyniku nakładania się dwóch fal o podobnych częstotliwościach. W naszym przypadku, gdy $U_1$ i $U_2$ mają bardzo zbliżone częstotliwości, na wyjściu obserwujemy falę o pulsującej amplitudzie. Częstotliwość dudnień jest wtedy dokładnie równa wartości bezwzględnej z różnicy częstotliwości obu sygnałów wejściowych ($f_"dud" = |f_1 - f_2|$).
@@ -432,28 +442,28 @@ Aby zaobserwować dudnienia w praktyce, ustawiliśmy niewielką różnicę częs
   supplement: [Wykres],
   image("./2_3/dudnienie_widac.png", width: 85%),
   caption: [Widok dudnień z oddalonej skali],
-) <dudnienia_ogolne>
+)
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
   image("./2_3/dudnien wiecej.png", width: 85%),
   caption: [Dudnienia w przybliżonej skali],
-) <dudnienia_wiecej>
+)
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
   image("./2_3/dudnienie duze.png", width: 85%),
   caption: [Dudnienia duże. Pomiary kursorami wskazują częstotliwość obwiedni wynoszącą 49.48 Hz.],
-) <dudnienia_maks>
+)
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
   image("./2_3/dudnienie male.png", width: 85%),
   caption: [Dudnienia małe. Pomiary kursorami dla sygnału wewnątrz obwiedni wskazują częstotliwość 1.03 kHz.],
-) <dudnienia_min>
+) 
 
 Warto zaznaczyć, że sygnał "wypełniający" obwiednię dudnień oscyluje z częstotliwością równą średniej arytmetycznej obu sygnałów wejściowych:
 $ f_"śr" = (f_1 + f_2) / 2 = (1000 "Hz" + 1050 "Hz") / 2 = 1025 "Hz" $
@@ -474,46 +484,135 @@ Wynik ten z dobrym przybliżeniem idealnie pokrywa się z wartością $1.03 "kHz
   caption: [Średnia arytmetyczna częstotliwości obu sygnałów wejściowych, czyli $f_"dud" = (f_1 + f_2) / 2$],
 ) 
 
-== Ćwiczenie 3.4: Przerzutnik Schmitta
-=== Teoria
-Przerzutnik Schmitta to komparator z pętlą dodatniego sprzężenia zwrotnego. Charakteryzuje się zjawiskiem histerezy, co uodparnia go na zaszumienie sygnału wejściowego. Niezależnie od podanego kształtu fali (sinus, trójkąt), na wyjściu generuje ostry przebieg prostokątny. Napięcie przerzutu liczy się ze wzoru:
+= Ćwiczenie 3.4: Przerzutnik Schmitta
+== Treść
+Dla zadanego napięcia histerezy równego l V zbudować przerzutnik Schmidta. Zaobserwować i
+odrysować przebiegi napięcia wyjściowego przy sinusoidalnym i trójkątnym napięciu wejściowym. Zmierzyć histerezę i wykreślić statyczną charakterystykę układu.
+== Teoria
+
+=== Przerzutnik
+*Przerzutniki* to układy elektroniczne wytwarzające prostokątne przebiegi napięciowe w wyniku szybkich procesów przełączania (przerzutów) pomiędzy różnymi stanami. W przerzutnikach dwustanowych można wyróżnić dwie fazy odpowiadające niskiemu i wysokiemu poziomowi napięcia wyjściowego.
+
+Główne rodzaje przerzutników:
+- *Bistabilne* - dwa stany stabilne. Dla wymuszenia przejścia z jednego stanu do drugiego konieczne jest doprowadzenie zewnętrznego sygnału wyzwalającego.
+- *Monostabilne* - jeden stan stabilny. Zewnętrzny sygnał wyzwalający powoduje przejście do stanu niestabilnego. Po pewnym czasie układ samoczynnie powraca do stanu stabilnego.
+- *Astabilne* - brak stanów stabilnych. Następują samoczynne przerzuty pomiędzy dwoma stanami bez udziału sygnału zewnętrznego (układ staje się generatorem przebiegów prostokątnych).
+
+=== Przerzutnik Schmitta
+Przerzutnik Schmitta to komparator z pętlą dodatniego sprzężenia zwrotnego. Charakteryzuje się zjawiskiem histerezy, co uodparnia go na zaszumienie sygnału wejściowego. Niezależnie od podanego kształtu fali (sinus, trójkąt), na wyjściu generuje ostry przebieg prostokątny.
+
+W omawianym przerzutniku bistabilnym (dwustanowym, zwanym przerzutnikiem Schmitta) dodatnie sprzężenie zwrotne realizowane jest przez oporowy dzielnik napięcia. 
+
+Napięcie wyjściowe ($U_"wy"$) przyjmuje tylko dwie wartości: maksymalną ($+E$) lub minimalną ($-E$), które są bezpośrednio określone przez napięcia zasilania wzmacniacza operacyjnego ($+E$, $-E$). Działanie układu opiera się na porównaniu napięć na wejściach wzmacniacza: wejście odwracające otrzymuje sygnał wejściowy ($U_- = U_"we"$), a nieodwracające napięcie z dzielnika ($U_+ = U_p$).
+
+Zasada przełączania:
+- Jeżeli $U_- < U_+$, to $U_"wy" = +E$
+- Jeżeli $U_- > U_+$, to $U_"wy" = -E$
+
+Gdy na wyjściu napięcie wynosi $+E$, to stan ten utrzymuje się jako stabilny. Wzrost napięcia wejściowego powyżej aktualnej wartości progowej spowoduje błyskawiczny przerzut napięcia na wyjściu z $+E$ na $-E$. 
+
+Napięcie przerzutu $U_p$ jest ściśle zależne od aktualnego stanu wyjścia i określa je wzór:
 $ U_p = R_2 / (R_1 + R_2) U_"wy" $
 
-=== Zadanie praktyczne
-Układ zmontowano w celu uzyskania histerezy równej 1V. Użyte rezystory (ustawione na potencjometrach):
-- $R_1 = $ *[TUTAJ]*
-- $R_2 = $ *[TUTAJ]*
+Jednocześnie ze zmianą napięcia na wyjściu (np. na $-E$), natychmiast zmienia się próg $U_p$. Nowy stan z napięciem wyjściowym $-E$ pozostanie stabilny tak długo, dopóki $U_"we"$ będzie większe od nowej, ujemnej wartości napięcia $U_p$. Zjawisko to nazywamy *histerezą*.
 
-// #grid(
-//   columns: (1fr, 1fr),
-//   align(center)[
-//     #figure(
-//       kind: "chart",
-//       supplement: [Wykres],
-//       image("./screens/placeholder.png", width: 95%), // PODMIEŃ (SINUS)
-//       caption: [Wyjście dla sygnału sinusoidalnego],
-//     ) <schmitt_sin>],
+== Schemat układu
 
-//   align(center)[
-//     #figure(
-//       kind: "chart",
-//       supplement: [Wykres],
-//       image("./screens/placeholder.png", width: 95%), // PODMIEŃ (TRÓJKĄT)
-//       caption: [Wyjście dla sygnału trójkątnego],
-//     ) <schmitt_tri>],
-// )
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./2_4/Przerzutnik.png", width: 80%),
+  caption: [Schemat ideowy przerzutnika Schmitta],
+)
 
-// === Pętla histerezy (Tryb X-Y)
-// #figure(
-//   kind: "chart",
-//   supplement: [Wykres],
-//   image("./screens/placeholder.png", width: 80%), // PODMIEŃ NA WYKRES XY Z OSCYLOSKOPU
-//   caption: [Zmierzona statyczna charakterystyka układu (histereza)],
-// ) <histereza>
+== Budowa układu
+Do budowy układu wykorzystano elementy o parametrach:
+- $R_1 = $ *[2.03 kΩ]*
+- $R_2 = $ *[60 Ω]*
+- $E = $ *[12 V]*
+
+== Zmontowany układ
+
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  rotate(-90deg)[
+    #image("./2_4/IMG_4231.png", width: 70%, height: 50%) 
+  ],
+  caption: [Zmontowany układ przerzutnika Schmitta na płytce prototypowej UA-1],
+)
+
+== Pomiary i obserwacje
+Po prawidłowym zmontowaniu i zestrojeniu układu, na wejście podano sygnał o częstotliwości 1 kHz z generatora. Reakcję przerzutnika Schmitta na sygnał sinusoidalny zilustrowano poniżej.
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_4/1zad.png", width: 85%),
+  caption: [Odpowiedź przerzutnika Schmitta na sygnał sinusoidalny.],
+)  <schmitt_sinus>
+
+Jak widać na oscylogramie, układ w pełni poprawnie realizuje swoją funkcję. Niezależnie od łagodnego kształtu fali wejściowej, na wyjściu generowany jest ostry przebieg prostokątny. Amplituda wyjściowa osiąga wartości nasycenia wzmacniacza operacyjnego (od ok. $+10.7 "V"$ do $-10.7 "V"$). Przerzut następuje mniej więcej w momencie, gdy sygnał wejściowy przekracza ustalone progi napięciowe ($U_p$), obliczone poniżej (@schmitt_plus, @schmitt_minus)
+
+== Obliczenia progów napięciowych
+Zgodnie ze wzorami z wykładu, napięcie przerzutu w przerzutniku Schmitta określa aktualny stan wyjścia wzmacniacza operacyjnego ($+E$ lub $-E$) oraz dzielnik napięcia utworzony przez rezystory $R_1$ i $R_2$.
+
+Z pomiarów na oscyloskopie (@schmitt_sinus) odczytano, że napięcie międzyszczytowe wyjścia wynosi $21.40 "V"$, co oznacza, że napięcia nasycenia wzmacniacza to:
+- $U_"wy(max)" = +10.7 "V"$
+- $U_"wy(min)" = -10.7 "V"$
+
+Podstawiając zmierzone po wysterowaniu wartości rezystorów ($R_1 = 2030 Omega$, $R_2 = 60 Omega$), wyliczono rzeczywiste, teoretyczne progi przełączania $U_p$:
+
+$ U_"p+" = U_"wy" * R_2 / (R_1 + R_2) = 10.7 "V" * 60 / (2030 + 60) = 10.7 * 0.0287 approx 0.31 "V" $ <schmitt_plus>
+
+$ U_"p-" = U_"wy" * R_2 / (R_1 + R_2) = -10.7 "V" * 60 / (2030 + 60) = -10.7 * 0.0287 approx -0.31 "V" $ <schmitt_minus>
+
+Całkowita szerokość pętli histerezy wynosi zatem:
+$ Delta U_p = U_"p+" - U_"p-" = 0.31 "V" - (-0.31 "V") = 0.62 "V" $
+lub 
+$ Delta U_p = 2 * U_"p" = 2 * 0.31 "V" = 0.62 "V" $
+
+== Pętla histerezy (Tryb XY)
+Aby precyzyjnie zaobserwować zjawisko histerezy, oscyloskop przełączono w tryb pracy XY, gdzie na osi odciętych (X) odłożono sygnał wejściowy, a na osi rzędnych (Y) sygnał wyjściowy.
+
+=== Reakcja układu na sygnał sinusoidalny
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: center,
+  figure(
+    kind: "chart",
+    supplement: [Wykres],
+    image("./2_4/histereza2.png", width: 95%),
+    caption: [Pętla histerezy dla sygnału sinusoidalnego]
+  ),
+  figure(
+    kind: "chart",
+    supplement: [Wykres],
+    image("./2_4/histerza_trojkatna.png", width: 95%),
+    caption: [Pętla histerezy dla sygnału trójkątnego]
+  )
+)
+
+Uzyskane charakterystyki statyczne (w trybie XY) mówią nam, że całkowita szerokość pętli histerezy wynosi około $0.44 "V" ("ok." 2.2 "podziałki" * 200 mu$s).
+
+=== Reakcja układu na sygnał trójkątny
+Zgodnie z wymaganiami instrukcji, w kolejnym etapie ćwiczenia wysterowano przerzutnik sygnałem o kształcie trójkątnym. Częstotliwość i amplituda sygnału generatora pozostały niezmienione. 
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_4/histerza_trojkatna.png", width: 85%),
+  caption: [Charakterystyka przejściowa (tryb XY) przerzutnika przy sygnale trójkątnym.],
+)
+
+Przerzutnik Schmitta jest całkowicie niewrażliwy na kształt fali wejściowej. Niezależnie od tego, czy napięcie narasta łagodnie (sinus) czy liniowo (trójkąt), zmiana stanu wyjścia następuje błyskawicznie po przekroczeniu sztywnego progu histerezy.
+
+= Ćwiczenie 3.5: Multiwibrator astabilny
+== Treść
 
 
-== Ćwiczenie 3.5: Multiwibrator astabilny
-=== Teoria
+== Teoria
 Multiwibrator astabilny to generator drgań prostokątnych, który nie posiada stabilnego stanu operacyjnego. Cyklicznie przerzuca swoje stany ładując i rozładowując kondensator. Teoretyczny okres drgań ($T$) oblicza się ze wzoru:
 $ T = 2 R C ln((1 + gamma)/(1 - gamma)), quad "gdzie" quad gamma = R_2 / (R_1 + R_2) $
 
