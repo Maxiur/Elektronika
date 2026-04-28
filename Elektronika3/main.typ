@@ -89,8 +89,7 @@ Zanotowane wartości napięć na pinach zasilacza:
 
 = Ćwiczenie 3.2: Wzmacniacz odwracający fazę o wzmocnieniu 10
 == Treść
-Zmontować sumator o dwóch wejściach.  Zsumować drgania sinusoidalne z dwóch generatorów,
-obserwować zdudnienia przebiegów.
+Zmontować wzmacniacz odwracający fazę o wzmocnieniu 10. Zdjąć charakterystykę częstotliwościową i fazową. 
 == Teoria
 === Sprzężenie zwrotne
 Sprzężeniem zwrotnym nazywa się oddziaływanie skutku na przyczynę.
@@ -173,12 +172,12 @@ Aby uzyskać wzmocnienie 10-krotne, należy dobrać opornik $R_f$ tak, aby był 
 
 == Budowa układu
 W naszym przypadku $R_f = R_2$, dlatego do budowy układu wykorzystano następujące rezystory:
-- $R_1 = $ *10 kΩ*
-- $R_f = $ *100 kΩ*
+- $R_1 = $ *10 k$Omega$*
+- $R_f = $ *100 k$Omega$*
 
 Przybliżone wartości zmierzone miernikiem:
-- $R_1 = $ *9.997 kΩ*
-- $R_f = $ *100.1 kΩ*
+- $R_1 = $ *9.997 k$Omega$*
+- $R_f = $ *100.1 k$Omega$*
 
 == Zmontowany układ
 
@@ -368,9 +367,9 @@ Sumator dodaje do siebie sygnały z kilku wejść. Podanie dwóch fal sinusoidal
 Wykorzystane rezystory i napięcia w układzie sumatora:
 - $U_1 = $ *[1.000 V]*
 - $U_2 = $ *[1.000 V]*
-- $R_1 = $ *[9.98 kΩ]*
-- $R_2 = $ *[9.99 kΩ]*
-- $R_f = $ *[10.1 kΩ]*
+- $R_1 = $ *[9.98 k$Omega$]*
+- $R_2 = $ *[9.99 k$Omega$]*
+- $R_f = $ *[10.1 k$Omega$]*
 
 == Zmontowany układ
 #figure(
@@ -455,34 +454,24 @@ Aby zaobserwować dudnienia w praktyce, ustawiliśmy niewielką różnicę częs
   kind: "chart",
   supplement: [Wykres],
   image("./2_3/dudnienie duze.png", width: 85%),
-  caption: [Dudnienia duże. Pomiary kursorami wskazują częstotliwość obwiedni wynoszącą 49.48 Hz.],
+  caption: [Dudnienia duże. Częstotliwość 49.48 Hz.],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
   image("./2_3/dudnienie male.png", width: 85%),
-  caption: [Dudnienia małe. Pomiary kursorami dla sygnału wewnątrz obwiedni wskazują częstotliwość 1.03 kHz.],
+  caption: [Dudnienia małe. Częstotliwość 1.03 kHz.],
 ) 
 
 Warto zaznaczyć, że sygnał "wypełniający" obwiednię dudnień oscyluje z częstotliwością równą średniej arytmetycznej obu sygnałów wejściowych:
-$ f_"śr" = (f_1 + f_2) / 2 = (1000 "Hz" + 1050 "Hz") / 2 = 1025 "Hz" $
+$ f_"śr" = (f_1 + f_2) / 2 = (1000 "Hz" + 1050 "Hz") / 2 = 1025 "Hz" $ <dudnienie>
 
 Wynik ten z dobrym przybliżeniem idealnie pokrywa się z wartością $1.03 "kHz"$, którą zmierzyliśmy ręcznie kursorami.
 
-#figure(
-  kind: "chart",
-  supplement: [Wykres],
-  image("./2_3/dudnienie duze.png", width: 85%),
-  caption: [Dudnienia dla $Delta f = 50 "Hz"$],
-) 
-
-#figure(
-  kind: "chart",
-  supplement: [Wykres],
-  image("./2_3/dudnienie male.png", width: 85%),
-  caption: [Średnia arytmetyczna częstotliwości obu sygnałów wejściowych, czyli $f_"dud" = (f_1 + f_2) / 2$],
-) 
+== Podsumowanie
+- *Działanie układu:* Zmontowany sumator bez problemu dodaje do siebie napięcia z obu generatorów. Amplituda wyjściowa jest sumą amplitud wejściowych, co potwierdza poprawność działania pętli ujemnego sprzężenia zwrotnego.
+- *Zjawisko dudnień:* Pomiary udowodniły, że nakładanie się na siebie dwóch zbliżonych częstotliwości ($1000 "Hz"$ i $1050 "Hz"$) generuje pulsującą obwiednię o częstotliwości różnicowej ($50 "Hz"$).\ Sygnał "wypełniający" wewnątrz obwiedni posiada częstotliwość równą średniej arytmetycznej sygnałów wejściowych ($1025 "Hz"$). Zmierzona kursorami wartość - $1.03 "kHz"$ udowadnia zgodność z teorią w @dudnienie.
 
 = Ćwiczenie 3.4: Przerzutnik Schmitta
 == Treść
@@ -527,8 +516,8 @@ Jednocześnie ze zmianą napięcia na wyjściu (np. na $-E$), natychmiast zmieni
 
 == Budowa układu
 Do budowy układu wykorzystano elementy o parametrach:
-- $R_1 = $ *[2.03 kΩ]*
-- $R_2 = $ *[60 Ω]*
+- $R_1 = $ *[2.03 k$Omega$]*
+- $R_2 = $ *[60 $Omega$]*
 - $E = $ *[12 V]*
 
 == Zmontowany układ
@@ -576,25 +565,14 @@ $ Delta U_p = 2 * U_"p" = 2 * 0.31 "V" = 0.62 "V" $
 Aby precyzyjnie zaobserwować zjawisko histerezy, oscyloskop przełączono w tryb pracy XY, gdzie na osi odciętych (X) odłożono sygnał wejściowy, a na osi rzędnych (Y) sygnał wyjściowy.
 
 === Reakcja układu na sygnał sinusoidalny
-#grid(
-  columns: (1fr, 1fr),
-  gutter: 1em,
-  align: center,
-  figure(
+#figure(
     kind: "chart",
     supplement: [Wykres],
     image("./2_4/histereza2.png", width: 95%),
-    caption: [Pętla histerezy dla sygnału sinusoidalnego]
-  ),
-  figure(
-    kind: "chart",
-    supplement: [Wykres],
-    image("./2_4/histerza_trojkatna.png", width: 95%),
-    caption: [Pętla histerezy dla sygnału trójkątnego]
+    caption: [Pętla histerezy dla sygnału sinusoidalnego.],
   )
-)
 
-Uzyskane charakterystyki statyczne (w trybie XY) mówią nam, że całkowita szerokość pętli histerezy wynosi około $0.44 "V" ("ok." 2.2 "podziałki" * 200 mu$s).
+Uzyskane charakterystyki statyczne (w trybie XY) mówią nam, że całkowita szerokość pętli histerezy wynosi około $0.44 "V"$ (ok. 2.2 podziałki $*$ 200 mV).
 
 === Reakcja układu na sygnał trójkątny
 Zgodnie z wymaganiami instrukcji, w kolejnym etapie ćwiczenia wysterowano przerzutnik sygnałem o kształcie trójkątnym. Częstotliwość i amplituda sygnału generatora pozostały niezmienione. 
@@ -606,40 +584,91 @@ Zgodnie z wymaganiami instrukcji, w kolejnym etapie ćwiczenia wysterowano przer
   caption: [Charakterystyka przejściowa (tryb XY) przerzutnika przy sygnale trójkątnym.],
 )
 
-Przerzutnik Schmitta jest całkowicie niewrażliwy na kształt fali wejściowej. Niezależnie od tego, czy napięcie narasta łagodnie (sinus) czy liniowo (trójkąt), zmiana stanu wyjścia następuje błyskawicznie po przekroczeniu sztywnego progu histerezy.
+== Podsumowanie
+Przerzutnik Schmitta jest całkowicie niewrażliwy na kształt fali wejściowej. Niezależnie od tego, czy napięcie narasta łagodnie (sinus) czy liniowo (trójkąt), zmiana stanu wyjścia następuje błyskawicznie po przekroczeniu sztywnego progu histerezy. Szerokość pętli histerezy, obliczona z oscyloskopu (0.44 V), różniła się nieco od wartości teoretycznej (0.62 V).
 
 = Ćwiczenie 3.5: Multiwibrator astabilny
 == Treść
-
+Zbudować multiwibrator astabilny. Zaobserwować i odrysować przebiegi impulsów na wejściu
+układu oraz w punkcie "1". Porównać zmierzoną wartości okresu drgań multiwibratora z wartością
+teoretyczną.
 
 == Teoria
-Multiwibrator astabilny to generator drgań prostokątnych, który nie posiada stabilnego stanu operacyjnego. Cyklicznie przerzuca swoje stany ładując i rozładowując kondensator. Teoretyczny okres drgań ($T$) oblicza się ze wzoru:
-$ T = 2 R C ln((1 + gamma)/(1 - gamma)), quad "gdzie" quad gamma = R_2 / (R_1 + R_2) $
+*Multiwibrator astabilny* to generator drgań prostokątnych, który nie posiada stabilnego stanu operacyjnego. Cyklicznie przerzuca swoje stany ładując i rozładowując kondensator. Teoretyczny okres drgań ($T$) oblicza się ze wzoru:
+$ T = 2 R C ln((1 + gamma)/(1 - gamma)), quad "gdzie" quad gamma = R_2 / (R_1 + R_2) $ <multiwibrator_wzor>
 
-=== Zadanie praktyczne
+== Schemat układu
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./2_5/wibrator_schemat.png", width: 80%),
+  caption: [Schemat ideowy multiwibratora astabilnego wraz z zaznaczonym miejscem pomiaru punktu "1"],
+)
+
+== Budowa układu
 Do budowy układu wykorzystano elementy o parametrach:
-- $C = $ *[TUTAJ]*
-- $R_1 = $ *[TUTAJ]*
-- $R_2 = $ *[TUTAJ]*
+- $C = $ *[10nF]*
+- $R_1 = $ *[9.98 k$Omega$]*
+- $R_2 = $ *[9.99 k$Omega$]*
+- $R_f = $ *[3.71 k$Omega$]*
 
-// #figure(
-//   kind: "chart",
-//   supplement: [Wykres],
-//   image("./screens/placeholder.png", width: 80%), // PODMIEŃ FOTKE IMPULSÓW
-//   caption: [Przebiegi impulsów na wejściu układu i w punkcie "1"],
-// ) <multiwibrator>
 
-*Porównanie okresu drgań:*
-- Wartość wyliczona teoretycznie: *[WPISZ WYNIK]*
-- Wartość zmierzona kursorami: *[WPISZ WYNIK]*
+== Zmontowany układ
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  rotate(-90deg)[
+    #image("./2_5/IMG_4233.png", width: 70%, height: 50%) 
+  ],
+  caption: [Zmontowany układ multiwibratora astabilnego na płytce prototypowej UA-1],
+)
+
+== Pomiary
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./2_5/impuls i punkt 1.png", width: 85%),
+  caption: [Przebieg czasowy impulsów w multiwibratorze astabilnym.],
+)
+
+== Porównanie okresu drgań
+Zgodnie ze wzorem @multiwibrator_wzor, okres drgań multiwibratora wyznacza się z zależności:
+$ T = 2 R_f C ln((1+gamma)/(1-gamma)) $
+gdzie współczynnik $gamma$ wynosi:
+$ gamma = R_2 / (R_1 + R_2) = 9.99 / (9.98 + 9.99) = 9.99 / 19.97 approx 0.50 $
+
+Podstawiając założone wartości do głównego wzoru:
+$ T = 2 * 3700 * 10 * 10^(-9) * ln((1+0.5)/(1-0.5)) $
+$ T = 74 * 10^(-6) * ln(3) approx 74 * 10^(-6) * 1.0986 approx 81.3 mu"s" $
+
+Teoretyczna częstotliwość generowanego sygnału prostokątnego wynosi zatem:
+$ f = 1/T = 1 / (81.3 * 10^(-6) "s") approx 12.30 "kHz" $
+
+- Wartość wyliczona teoretycznie: *[12.30 kHz]*
+- Wartość zmierzona funkcjami wbudowanymi: *[12.16 kHz]*
 
 
 == Podsumowanie
 Laboratorium umożliwiło empiryczne zapoznanie się ze specyfiką pracy wzmacniaczy operacyjnych. Zbudowano i przetestowano w praktyce cztery różne aplikacje tego samego podzespołu: wzmacniacz odwracający, sumator napięć, przerzutnik Schmitta oraz multiwibrator astabilny. Pomiary za pomocą oscyloskopu w dużej mierze pokryły się z matematycznymi obliczeniami teoretycznymi układów z ujemnym i dodatnim sprzężeniem zwrotnym.
 
-=== Załącznik: Notatki
-// Odkomentuj jeśli wrzucasz notatki w txt
-// #read("./notatki3.txt")
+== Załącznik: Karta pracy
+
+#figure(
+  image("./karty_pracy/1.png", width: 80%),
+)
+
+#figure(
+  image("./karty_pracy/2.png", width: 80%),
+)
+
+#figure(
+  image("./karty_pracy/3.png", width: 80%),
+)
+
+#figure(
+  image("./karty_pracy/4.png", width: 80%),
+)
 
 #pagebreak()
 
@@ -659,29 +688,6 @@ Laboratorium umożliwiło empiryczne zapoznanie się ze specyfiką pracy wzmacni
   title: [Spis tabel],
   target: figure.where(kind: "table")
 )
-
-// #grid(
-//   columns: (1fr, 1fr),
-//   align(center)[
-//     #figure(
-//       kind: "photo",
-//       supplement: [Zdjęcie],
-//       image("/photos/IMG_4068.jpg", width: 70%),
-//       alt: "Chart png here",
-//       caption: [Cat
-//       ],
-//     ) <photo1>],
-
-//   align(center)[
-//     #figure(
-//       kind: "photo",
-//       supplement: [Zdjęcie],
-//       image("/photos/IMG_4068.jpg", width: 70%),
-//       alt: "Chart png here",
-//       caption: [Kitty Cat
-//       ],
-//     ) <photo2>],
-// )
 
 // // ==========================================
 // // Chart
