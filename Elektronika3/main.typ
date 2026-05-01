@@ -58,7 +58,7 @@
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_1/IMG_4218.png", width: 100%),
+  image("./3_1/IMG_4218.png", width: 100%),
   alt: "Chart png here",
   caption: [Stanowisko 5
   ],
@@ -77,7 +77,7 @@ Zapoznać się ze schematem ideowym układu wzmacniacza operacyjnego.
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_1/PlytkaUA.png", width: 80%), // WRZUĆ SWOJĄ FOTĘ LUB ZOSTAW TĘ
+  image("./3_1/PlytkaUA.png", width: 80%), // WRZUĆ SWOJĄ FOTĘ LUB ZOSTAW TĘ
   alt: "Płytka UA",
   caption: [Widok płytki montażowej UA-1 ze wzmacniaczem operacyjnym],
 ) <plytka_ua>
@@ -104,7 +104,7 @@ do wejścia układu i zsumowana z sygnałem wejściowym.
     #figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("./2_2/wzmacniacz_bez_sprzezenia.png", width: 70%),
+      image("./3_2/wzmacniacz_bez_sprzezenia.png", width: 70%),
       alt: "Chart png here",
       caption: [Schemat wzmacniacza bez sprzężenia zwrotnego
       ],
@@ -114,7 +114,7 @@ do wejścia układu i zsumowana z sygnałem wejściowym.
     #figure(
       kind: "photo",
       supplement: [Zdjęcie],
-      image("./2_2/wzmaczniacz_ze_sprzezeniem.png", width: 70%),
+      image("./3_2/wzmaczniacz_ze_sprzezeniem.png", width: 70%),
       alt: "Chart png here",
       caption: [Schemat wzmacniacza z sprzężeniem zwrotnym
       ],
@@ -144,7 +144,7 @@ Zasilane są zazwyczaj napięciami symetrycznymi ($U_"CC" = +15 "V"$, $U_"EE" = 
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_2/wzmacniacz_operacyjny.png", width: 70%),
+  image("./3_2/wzmacniacz_operacyjny.png", width: 70%),
   alt: "Chart png here",
   caption: [Schemat wzmacniacza operacyjnego z zaznaczonymi wejściami odwracającym i nieodwracającym
   ],
@@ -163,7 +163,7 @@ Aby uzyskać wzmocnienie 10-krotne, należy dobrać opornik $R_f$ tak, aby był 
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_2/odwracajacy_faze.png", width: 70%),
+  image("./3_2/odwracajacy_faze.png", width: 70%),
   alt: "Chart png here",
   caption: [Schemat wzmacniacza operacyjnego odwracającego
   ],
@@ -189,7 +189,7 @@ Przybliżone wartości zmierzone miernikiem:
   supplement: [Zdjęcie],
   // Używaj samej funkcji rotate na zewnątrz, to daje lepszą kontrolę
   rotate(-90deg)[
-    #image("./2_2/wzmaczniacz_odwracajacy.png", width: 70%, height: 50%) 
+    #image("./3_2/wzmaczniacz_odwracajacy.png", width: 70%, height: 50%) 
   ],
   caption: [Układ wzmacniacza odwracającego zmontowany na płytce UA-1],
 ) <uklad_foto>
@@ -200,7 +200,7 @@ Przybliżone wartości zmierzone miernikiem:
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_2/Wszystkie_pomiary.png", width: 80%),
+  image("./3_2/Wszystkie_pomiary.png", width: 80%),
   caption: [Pomiar amplitudy wejścia/wyjścia oraz fazy dla wzmacniacza odwracającego fazę],
 )
 
@@ -216,14 +216,14 @@ Zgodnie z teorią na wyjściu uzyskujemy sygnał o 10-krotnie większej amplitud
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_2/Wzmaczniacz x10.png", width: 80%),
+  image("./3_2/Wzmaczniacz x10.png", width: 80%),
   caption: [Za duża skala, przez co amplituda się rozjeżdża],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_2/Wzmaczniacz_faza_x10.png", width: 80%),
+  image("./3_2/Wzmaczniacz_faza_x10.png", width: 80%),
   caption: [Amplituda 2V, Wyjście 20V, wyraźnie odwrócona faza],
 )
 
@@ -252,7 +252,7 @@ Przeprowadzono pomiary dla rosnącej częstotliwości w celu wyznaczenia górnej
     #figure(
       kind: "chart",
       supplement: [Wykres],
-      image("./2_2/" + plik, width: 95%), 
+      image("./3_2/" + plik, width: 95%), 
       caption: [Częstotliwość: #plik.replace(".png", "").replace("khz", " kHz").replace("mhz", " MHz").replace("hz", " Hz")],
     )
   ])
@@ -262,28 +262,28 @@ Przeprowadzono pomiary dla rosnącej częstotliwości w celu wyznaczenia górnej
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_2/2.6mhz (graniczna).png", width: 80%, height: 29%),
+  image("./3_2/2.6mhz (graniczna).png", width: 80%, height: 29%),
   caption: [2.6 MHz - wartość graniczna, przy której sygnał wyjściowy jest 10 razy mniejszy od wejściowego],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_2/wykres_fazy.png", width: 80%),
+  image("./3_2/wykres_fazy.png", width: 80%),
   caption: [Charakterystyka fazowa - przesunięcie fazowe między wejściem a wyjściem w funkcji częstotliwości],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_2/wykres_amplitudy.png", width: 80%),
+  image("./3_2/wykres_amplitudy.png", width: 80%),
   caption: [Charakterystyka częstotliwościowa (amplitudowa) - zależność wzmocnienia od częstotliwości],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_2/charakterystyka_zbiorcza.png", width: 80%),
+  image("./3_2/charakterystyka_zbiorcza.png", width: 80%),
   caption: [Zbiorcza charakterystyka amplitudowo-fazowa wzmacniacza odwracającego],
 ) 
 
@@ -359,7 +359,7 @@ Sumator dodaje do siebie sygnały z kilku wejść. Podanie dwóch fal sinusoidal
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_3/sumator.png", width: 80%),
+  image("./3_3/sumator.png", width: 80%),
   caption: [Schemat ideowy dwuwejściowego sumatora napięć odwracającego],
 )
 
@@ -376,7 +376,7 @@ Wykorzystane rezystory i napięcia w układzie sumatora:
   kind: "photo",
   supplement: [Zdjęcie],
   rotate(-90deg)[
-    #image("./2_3/IMG_4220.png", width: 70%, height: 50%) 
+    #image("./3_3/IMG_4220.png", width: 70%, height: 50%) 
   ],
   caption: [Zmontowany układ sumatora na płytce prototypowej UA-1],
 )
@@ -384,7 +384,7 @@ Wykorzystane rezystory i napięcia w układzie sumatora:
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_3/IMG_4230.png", width: 70%), 
+  image("./3_3/IMG_4230.png", width: 70%), 
   caption: [Widok układu z bliska],
 )
 
@@ -393,14 +393,14 @@ Na początek zsumowanie dwóch fal sinusoidalnych o równych częstotliwościach
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_3/suma sygnalow.png", width: 85%),
+  image("./3_3/suma sygnalow.png", width: 85%),
   caption: [Przebieg czasowy sumy dwóch sygnałów o identycznej częstotliwości.],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_3/dudnienie.png", width: 85%),
+  image("./3_3/dudnienie.png", width: 85%),
   caption: [Potwierdzenie sumy sygnałów na wyjściu sumatora.],
 )
 
@@ -423,13 +423,13 @@ Dudnienia to zjawisko powstające w wyniku nakładania się dwóch fal o podobny
     kind: "photo",
     supplement: [Zdjęcie],
     // Uwaga: sprawdź czy to na pewno .png, wcześniej wrzucałeś .jpg!
-    image("./2_3/generator_1V.png", width: 95%),
+    image("./3_3/generator_1V.png", width: 95%),
     caption: [Generator 1: $f_1 = 1.000 "kHz"$]
   ),
   figure(
     kind: "photo",
     supplement: [Zdjęcie],
-    image("./2_3/generator_1050V.png", width: 95%),
+    image("./3_3/generator_1050V.png", width: 95%),
     caption: [Generator 2: $f_2 = 1.050 "kHz"$]
   )
 )
@@ -439,28 +439,28 @@ Aby zaobserwować dudnienia w praktyce, ustawiliśmy niewielką różnicę częs
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_3/dudnienie_widac.png", width: 85%),
+  image("./3_3/dudnienie_widac.png", width: 85%),
   caption: [Widok dudnień z oddalonej skali],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_3/dudnien wiecej.png", width: 85%),
+  image("./3_3/dudnien wiecej.png", width: 85%),
   caption: [Dudnienia w przybliżonej skali],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_3/dudnienie duze.png", width: 85%),
+  image("./3_3/dudnienie duze.png", width: 85%),
   caption: [Dudnienia duże. Częstotliwość 49.48 Hz.],
 )
 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_3/dudnienie male.png", width: 85%),
+  image("./3_3/dudnienie male.png", width: 85%),
   caption: [Dudnienia małe. Częstotliwość 1.03 kHz.],
 ) 
 
@@ -510,7 +510,7 @@ Jednocześnie ze zmianą napięcia na wyjściu (np. na $-E$), natychmiast zmieni
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_4/Przerzutnik.png", width: 80%),
+  image("./3_4/Przerzutnik.png", width: 80%),
   caption: [Schemat ideowy przerzutnika Schmitta],
 )
 
@@ -526,7 +526,7 @@ Do budowy układu wykorzystano elementy o parametrach:
   kind: "photo",
   supplement: [Zdjęcie],
   rotate(-90deg)[
-    #image("./2_4/IMG_4231.png", width: 70%, height: 50%) 
+    #image("./3_4/IMG_4231.png", width: 70%, height: 50%) 
   ],
   caption: [Zmontowany układ przerzutnika Schmitta na płytce prototypowej UA-1],
 )
@@ -537,7 +537,7 @@ Po prawidłowym zmontowaniu i zestrojeniu układu, na wejście podano sygnał o 
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_4/1zad.png", width: 85%),
+  image("./3_4/1zad.png", width: 85%),
   caption: [Odpowiedź przerzutnika Schmitta na sygnał sinusoidalny.],
 )  <schmitt_sinus>
 
@@ -568,7 +568,7 @@ Aby precyzyjnie zaobserwować zjawisko histerezy, oscyloskop przełączono w try
 #figure(
     kind: "chart",
     supplement: [Wykres],
-    image("./2_4/histereza2.png", width: 95%),
+    image("./3_4/histereza2.png", width: 95%),
     caption: [Pętla histerezy dla sygnału sinusoidalnego.],
   )
 
@@ -580,7 +580,7 @@ Zgodnie z wymaganiami instrukcji, w kolejnym etapie ćwiczenia wysterowano przer
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_4/histerza_trojkatna.png", width: 85%),
+  image("./3_4/histerza_trojkatna.png", width: 85%),
   caption: [Charakterystyka przejściowa (tryb XY) przerzutnika przy sygnale trójkątnym.],
 )
 
@@ -601,7 +601,7 @@ $ T = 2 R C ln((1 + gamma)/(1 - gamma)), quad "gdzie" quad gamma = R_2 / (R_1 + 
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  image("./2_5/wibrator_schemat.png", width: 80%),
+  image("./3_5/wibrator_schemat.png", width: 80%),
   caption: [Schemat ideowy multiwibratora astabilnego wraz z zaznaczonym miejscem pomiaru punktu "1"],
 )
 
@@ -618,7 +618,7 @@ Do budowy układu wykorzystano elementy o parametrach:
   kind: "photo",
   supplement: [Zdjęcie],
   rotate(-90deg)[
-    #image("./2_5/IMG_4233.png", width: 70%, height: 50%) 
+    #image("./3_5/IMG_4233.png", width: 70%, height: 50%) 
   ],
   caption: [Zmontowany układ multiwibratora astabilnego na płytce prototypowej UA-1],
 )
@@ -628,7 +628,7 @@ Do budowy układu wykorzystano elementy o parametrach:
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./2_5/impuls i punkt 1.png", width: 85%),
+  image("./3_5/impuls i punkt 1.png", width: 85%),
   caption: [Przebieg czasowy impulsów w multiwibratorze astabilnym.],
 )
 
