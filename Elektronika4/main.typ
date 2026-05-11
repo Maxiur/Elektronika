@@ -685,7 +685,7 @@ Powyższa postać to gotowy przepis na zmontowanie układu z bramek 7400.
 ]
 
 == Weryfikacja działania
-Poniżej twarde dowody z frontu. Przeklikaliśmy całą tablicę prawdy od zera do siódemki, zmieniając również kabelek sygnału $B$. Jak widać, segment 'e' ożywa dokładnie wtedy, kiedy powinien (dla cyfr 0, 2 i 6). W pozostałych przypadkach zgodnie z planem pozostaje wygaszony.
+Przeklikaliśmy całą tablicę prawdy od zera do siódemki, zmieniając również kabelek sygnału $B$. Jak widać, segment 'e' ożywa dokładnie wtedy, kiedy powinien (dla cyfr 0, 2 i 6). W pozostałych przypadkach zgodnie z planem pozostaje wygaszony.
 
 #grid(
   columns: (1fr, 1fr),
