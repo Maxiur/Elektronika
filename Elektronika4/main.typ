@@ -1,6 +1,7 @@
 // Import external packages
 // Math and symbols
 #import "@preview/physica:0.9.7": *
+#import "@preview/circuiteria:0.2.0": *
 // Podpisy tabel lądują na górze
 #show figure.where(kind: "table"): set figure.caption(position: top)
 // Drawing circuit diagrams
@@ -221,23 +222,53 @@ Bramki logiczne stanowią podstawowe elementy budowy układów cyfrowych. W trak
 - *NOR (7402)* - suma logiczna z negacją. Drugi z funktorów uniwersalnych. Generuje stan wysoki wyłącznie wtedy, gdy na wszystkich jego wejściach panuje stan niski.
 - *Ex-OR (7486)* - alternatywa wykluczająca (XOR). Zwraca stan wysoki tylko wtedy, gdy stany na jej wejściach różnią się od siebie.
 
+#grid(
+  columns: (1fr, 1fr, 1fr),
+  gutter: 1em,
+  align: center,
+  figure(kind: "photo", supplement: [Schemat], image("./4_2/nand_scheme.png", width: 95%), caption: [Schemat bramki NAND]),
+  figure(kind: "photo", supplement: [Schemat], image("./4_2/nor_scheme.png", width: 95%), caption: [Schemat bramki NOR]),
+  figure(kind: "photo", supplement: [Schemat], image("./4_2/nand_scheme.png", width: 95%), caption: [Schemat bramki Ex-OR])
+)
+
 == Bramka NAND (7400)
 Dla każdej bramki zarejestrowano przebiegi wyjściowe dla wszystkich kombinacji wejściowych (00, 01, 10, 11).
 
 W celu weryfikacji pomiarów, poniżej przedstawiono teoretyczną tablicę prawdy dla bramki NAND (iloczyn zanegowany).
 
-#figure(
-  kind: "table",
-  supplement: [Tabela],
-  caption: [Tablica prawdy bramki NAND],
-  table(
-    columns: 3,
-    align: center,
-    [*A*], [*B*], [*Y (NAND)*],
-    [0], [0], [1],
-    [0], [1], [1],
-    [1], [0], [1],
-    [1], [1], [0]
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Tablica prawdy bramki NAND],
+    table(
+      columns: 3,
+      align: center,
+      [*A*], [*B*], [*Y (NAND)*],
+      [0], [0], [1],
+      [0], [1], [1],
+      [1], [0], [1],
+      [1], [1], [0]
+    )
+  ),
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Zestawienie fizycznych połączeń],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [5V], [Pin 14 ($V_(C C)$)],
+      [0V], [Pin 7 (GND)],
+      [Impulsator 1], [Pin 1 (1A)],
+      [Impulsator 2], [Pin 2 (1B)],
+      [Pin 3 (1Y)], [Próbnik],
+      [Pin 3 (1Y)], [Oscyloskop]
+    )
   )
 )
 
@@ -276,18 +307,39 @@ Poniżej przedstawiono montaż układów, podpinanie zasilania i podłączenie k
 == Bramka NOR (7402)
 Przed pomiarami sprawdzono tablicę prawdy dla bramki NOR (suma zanegowana).
 
-#figure(
-  kind: "table",
-  supplement: [Tabela],
-  caption: [Tablica prawdy bramki NOR],
-  table(
-    columns: 3,
-    align: center,
-    [*A*], [*B*], [*Y (NOR)*],
-    [0], [0], [1],
-    [0], [1], [0],
-    [1], [0], [0],
-    [1], [1], [0]
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Tablica prawdy bramki NOR],
+    table(
+      columns: 3,
+      align: center,
+      [*A*], [*B*], [*Y (NOR)*],
+      [0], [0], [1],
+      [0], [1], [0],
+      [1], [0], [0],
+      [1], [1], [0]
+    )
+  ),
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Zestawienie fizycznych połączeń],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [5V], [Pin 14 ($V_(C C)$)],
+      [0V], [Pin 7 (GND)],
+      [Impulsator 1], [Pin 2 (1A)],
+      [Impulsator 2], [Pin 3 (1B)],
+      [Pin 1 (1Y)], [Próbnik],
+      [Pin 1 (1Y)], [Oscyloskop]
+    )
   )
 )
 
@@ -328,20 +380,42 @@ Poniżej przedstawiono dokumentację fotograficzną montażu i pomiarów dla bra
 == Bramka Ex-OR (7486)
 Ostatnia do weryfikacji jest bramka Ex-OR (alternatywa wykluczająca), wypluwająca jedynkę tylko przy różnych stanach na wejściach.
 
-#figure(
-  kind: "table",
-  supplement: [Tabela],
-  caption: [Tablica prawdy bramki Ex-OR],
-  table(
-    columns: 3,
-    align: center,
-    [*A*], [*B*], [*Y (Ex-OR)*],
-    [0], [0], [0],
-    [0], [1], [1],
-    [1], [0], [1],
-    [1], [1], [0]
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Tablica prawdy bramki Ex-OR],
+    table(
+      columns: 3,
+      align: center,
+      [*A*], [*B*], [*Y (Ex-OR)*],
+      [0], [0], [0],
+      [0], [1], [1],
+      [1], [0], [1],
+      [1], [1], [0]
+    )
+  ),
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Zestawienie fizycznych połączeń],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [5V], [Pin 14 ($V_(C C)$)],
+      [0V], [Pin 7 (GND)],
+      [Impulsator 1], [Pin 1 (1A)],
+      [Impulsator 2], [Pin 2 (1B)],
+      [Pin 3 (1Y)], [Próbnik],
+      [Pin 3 (1Y)], [Oscyloskop]
+    )
   )
 )
+
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
@@ -374,7 +448,7 @@ Poniżej przedstawiono dokumentację fotograficzną montażu i pomiarów dla bra
 )
 
 == Podsumowanie
-W ćwiczeniu 4.2 mieliśmy do czynienia z bramkami NAND, NOR i Ex-OR. Zestawienie przebiegów z oscyloskopu, napięć zmierzonych multimetrem i wskazań próbnika stanów logicznych gładko pokrywa się z teoretycznymi tablicami prawdy. Wszystkie trzy bramki zachowywały się zgodnie z oczekiwaniami, co potwierdza poprawność ich działania.
+W ćwiczeniu 4.2 mieliśmy do czynienia z bramkami NAND, NOR i Ex-OR. Zestawienie przebiegów z oscyloskopu, napięć zmierzonych multimetrem i wskazań próbnika stanów logicznych pokrywa się z teoretycznymi tablicami prawdy. Wszystkie trzy bramki zachowywały się zgodnie z oczekiwaniami, co potwierdza poprawność ich działania.
 
 = Ćwiczenie 4.3
 == Treść
@@ -396,6 +470,21 @@ Analogiczne przekształcenia (wymagające odwrócenia logiki budowy) stosuje si�
 Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, iloczynu logicznego (AND) i sumy logicznej (OR). Dla każdej funkcji zarejestrowano przebiegi wyjściowe dla wszystkich kombinacji wejściowych.
 
 === Funkcja Negacji (NOT) z NAND
+#figure(
+  kind: "table",
+  supplement: [Tabela],
+  caption: [Połączenia dla funkcji NOT z bramki NAND],
+  table(
+    columns: 2,
+    align: center,
+    [*Od*], [*Do*],
+    [5V / 0V], [Pin 14 ($V_(C C)$) / Pin 7 (GND)],
+    [Impulsator 1], [Pin 1 (1A)],
+    [Impulsator 1], [Pin 2 (1B)],
+    [Pin 3 (1Y)], [Próbnik / Oscyloskop]
+  )
+)
+
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
@@ -413,6 +502,22 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
 )
 
 === Iloczyn Logiczny (AND) z NAND
+#figure(
+  kind: "table",
+  supplement: [Tabela],
+  caption: [Połączenia dla funkcji AND z bramek NAND],
+  table(
+    columns: 2,
+    align: center,
+    [*Od*], [*Do*],
+    [5V / 0V], [Pin 14 ($V_(C C)$) / Pin 7 (GND)],
+    [Impulsator 1], [Pin 1 (1A)],
+    [Impulsator 2], [Pin 2 (1B)],
+    [Pin 3 (1Y)], [Pin 4 (2A)],
+    [Pin 4 (2A)], [Pin 5 (2B)],
+    [Pin 6 (2Y)], [Próbnik / Oscyloskop]
+  )
+)
 #grid(
   columns: (1fr, 1fr, 1fr),
   gutter: 1em,
@@ -433,6 +538,23 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
 )
 
 === Suma Logiczna (OR) z NAND
+#figure(
+  kind: "table",
+  supplement: [Tabela],
+  caption: [Połączenia dla funkcji OR z bramek NAND],
+  table(
+    columns: 2,
+    align: center,
+    [*Od*], [*Do*],
+    [5V / 0V], [Pin 14 ($V_(C C)$) / Pin 7 (GND)],
+    [Impulsator 1], [Pin 1 (1A) oraz Pin 2 (1B)],
+    [Impulsator 2], [Pin 4 (2A) oraz Pin 5 (2B)],
+    [Pin 3 (1Y)], [Pin 9 (3A)],
+    [Pin 6 (2Y)], [Pin 10 (3B)],
+    [Pin 8 (3Y)], [Próbnik / Oscyloskop]
+  )
+)
+
 #grid(
   columns: (1fr, 1fr, 1fr),
   gutter: 1em,
@@ -679,7 +801,53 @@ $ Y = overline(A) dot overline(C) + B dot overline(C) $
 Zgodnie z poleceniem, układ należy zbudować wyłącznie z funktorów NAND. Z prawa de Morgana nakładamy podwójną negację na całe wyrażenie, a następnie łamiemy dolną kreskę, zmieniając znak sumy na iloczyn:
 $ Y = overline( overline(overline(A) dot overline(C) + B dot overline(C)) ) = overline( overline(overline(A) dot overline(C)) dot overline(B dot overline(C)) ) $
 
-Powyższa postać to gotowy przepis na zmontowanie układu z bramek 7400.
+#figure(
+  kind: "photo",
+  supplement: [Schemat],
+  align(top)[#circuit({
+      import "@preview/circuiteria:0.2.0": gates, wire
+      
+      // --- WARSTWA 1: Negatory ---
+      gates.gate-nand(x: 2, y: 3, w: 2, h: 2, id: "notA")
+      gates.gate-nand(x: 2, y: -3, w: 2, h: 2, id: "notC")
+      
+      // --- WARSTWA 2: Główne mnożniki ---
+      gates.gate-nand(x: 7, y: 1.5, w: 2, h: 2, id: "nandTop")
+      gates.gate-nand(x: 7, y: -1.5, w: 2, h: 2, id: "nandBot")
+      
+      // --- WARSTWA 3: Wyjście ---
+      gates.gate-nand(x: 12, y: 0, w: 2, h: 2, id: "nandOut")
+
+      // --- KABLOWANIE WEJŚĆ (Stubs & Wires) ---
+      wire.wire("wa1", ((-1, 4.5), "notA-port-in0"), style: "zigzag")
+      wire.wire("wa2", ((-1, 3.5), "notA-port-in1"), style: "zigzag")
+      wire.stub((-1, 3.5), "west", name: $A$)
+      wire.stub((-1, 4.5), "west", name: $A$)
+
+      wire.wire("wc1", ((-1, -2.5), "notC-port-in0"), style: "zigzag")
+      wire.wire("wc2", ((-1, -3.5), "notC-port-in1"), style: "zigzag")
+
+      wire.stub((-1, -2.5), "west", name: $C$)
+      wire.stub((-1, -3.5), "west", name: $C$)
+
+      wire.wire("wb", ((-1, -0.5), "nandBot-port-in0"), style: "zigzag")
+      wire.stub((-1, -0.5), "west", name: $B$)
+
+      // --- KABLOWANIE WEWNĘTRZNE ---
+      wire.wire("w1", ("notA-port-out", "nandTop-port-in0"), style: "zigzag")
+      wire.wire("w2", ("notC-port-out", "nandTop-port-in1"), style: "zigzag")
+      wire.wire("w3", ("notC-port-out", "nandBot-port-in1"), style: "zigzag")
+      wire.wire("w4", ("nandTop-port-out", "nandOut-port-in0"), style: "zigzag")
+      wire.wire("w5", ("nandBot-port-out", "nandOut-port-in1"), style: "zigzag")
+
+      // --- WYJŚCIE ---
+      wire.stub("nandOut-port-out", "east", name: $Y$)
+    })
+    #v(2em)],
+  caption: [Schemat układu logicznego dla segmentu 'e' z użyciem bramek NAND],
+)
+
+
 #quote(block: true)[
   *Uwaga:* Ponieważ na stanowisku mieliśmy do dyspozycji tylko dwa przyciski, a do układu potrzebowaliśmy trzech sygnałów wejściowych ($A, B, C$), żeby nie kombinować, musieliśmy lekko zaimprowizować. Sygnał $B$ był po prostu ręcznie przepinany pomiędzy zasilaniem (5V - logiczna jedynka) a masą (0V - logiczne zero) z gniazd po prawej stronie płytki (szary kabelek).
 ]
@@ -746,6 +914,7 @@ Z przeprowadzonych badań i pomiarów płyną następujące wnioski:
 )
 
 // Główny spis treści
+#pagebreak()
 #outline(title: [Spis treści])
 #v(2em)
 
