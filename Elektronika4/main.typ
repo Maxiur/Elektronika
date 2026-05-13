@@ -570,7 +570,7 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
       [*Od*], [*Do*],
       [5V / 0V], [U1:14 / U1:7],
       [Impulsator 1], [U1:1 i U1:2],
-      [Impulsator 2], [U1:4 i U1:5],
+      [Impulsator 2], [U1:4 i U1:5)],
       [U1:3], [Kabel do układu U2:1],
       [U1:6], [Kabel do układu U2:2]
     )
@@ -799,7 +799,7 @@ Z funktorów NAND (7400) zaprojektować i zmontować przerzutnik asynchroniczny 
 Sprawdzić tabelę przejść.
 
 == Teoria i Tabela przejść
-Przerzutnik asynchroniczny R-S zmontowany z dwóch bramek NAND charakteryzuje się wejściami aktywnymi w stanie niskim (oznaczanymi jako $overline(S)$ oraz $overline(R)$). W stanie spoczynkowym, aby układ pamiętał informację, na oba wejścia należy podać logiczną jedynkę. Wymuszenie stanu niskiego na obu wejściach jednocześnie prowadzi do stanu zabronionego, w którym oba wyjścia ($Q$ i $overline(Q)$) przyjmują stan wysoki, co przeczy zasadzie działania przerzutnika.
+Przerzutnik asynchroniczny R-S zmontowany z dwóch bramek NAND charakteryzuje się wejściami aktywnymi w stanie niskim (oznaczanymi jako $overline(S)$ oraz $overline(R)$). W stanie spoczynkowym, aby układ pamiętał informację, na oba wejścia należy podać logiczną jedynkę. Wymuszenie stanu niskiego na obu wejściach jednocześnie prowadzi do stanu zabronionego. 
 
 Poniżej przedstawiono teoretyczną tabelę przejść dla zrealizowanego układu.
 
