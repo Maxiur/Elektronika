@@ -80,18 +80,17 @@ Zapoznać się z płytką UC-2 do badania układów scalonych TTL.
   supplement: [Zdjęcie],
   image("./4_1/UC-2.png", width: 70%),
   alt: "Chart png here",
-  caption: [Stanowisko 5
+  caption: [Schemat płytki UC-2
   ],
 )
 
 #figure(
   kind: "photo",
   supplement: [Zdjęcie],
-  // Używaj samej funkcji rotate na zewnątrz, to daje lepszą kontrolę
   rotate(-90deg)[
     #image("./4_1/IMG_4275.png", width: 70%, height: 50%) 
   ],
-  caption: [Układ wzmacniacza odwracającego zmontowany na płytce UA-2],
+  caption: [Zdjęcie układu płytki UC-2],
 ) <uklad_foto>
 
 == Sprawdzenie napięć i stanów logicznych
@@ -466,6 +465,9 @@ Zasady konstruowania podstawowych układów:
 
 Analogiczne przekształcenia (wymagające odwrócenia logiki budowy) stosuje się przy projektowaniu układów wyłącznie na bazie bramek NOR.
 
+== Konwencja
+Z uwagi że wykorzystano oba sloty bramek, zastosujemy konwencje C1 oznaczające bramkę w lewym gnieździe, oraz C2 oznaczająca bramkę w prawym gnieździe.
+
 == Realizacja na bramkach NAND (7400)
 Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, iloczynu logicznego (AND) i sumy logicznej (OR). Dla każdej funkcji zarejestrowano przebiegi wyjściowe dla wszystkich kombinacji wejściowych.
 
@@ -518,6 +520,40 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
     [Pin 6 (2Y)], [Próbnik / Oscyloskop]
   )
 )
+
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U1 (Bramka NAND)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [5V / 0V], [U1:14 / U1:7],
+      [Impulsator 1], [U1:1],
+      [Impulsator 2], [U1:2],
+      [U1:3], [Wyjście do U2]
+    )
+  ),
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U2 (Negator)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [5V / 0V], [U2:14 / U2:7],
+      [Wyjście U1:3], [U2:1 oraz U2:2],
+      [U2:3], [Próbnik / Osc.]
+    )
+  )
+)
+
 #grid(
   columns: (1fr, 1fr, 1fr),
   gutter: 1em,
