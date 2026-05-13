@@ -129,8 +129,7 @@ Zbadano tablicę logiczną dla obu impulsatorów.
 
 == Weryfikacja działania przycisków
 
-Sprawdzono, czy impulsatory działają poprawnie. Poniżej zamieszczono dokumentację fotograficzną z testów wciskania guzików. Wszystko śmiga jak należy.
-
+Sprawdzono, czy impulsatory działają poprawnie. Poniżej zamieszczono dokumentację fotograficzną z testów wciskania guzików.
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
@@ -504,23 +503,6 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
 )
 
 === Iloczyn Logiczny (AND) z NAND
-#figure(
-  kind: "table",
-  supplement: [Tabela],
-  caption: [Połączenia dla funkcji AND z bramek NAND],
-  table(
-    columns: 2,
-    align: center,
-    [*Od*], [*Do*],
-    [5V / 0V], [Pin 14 ($V_(C C)$) / Pin 7 (GND)],
-    [Impulsator 1], [Pin 1 (1A)],
-    [Impulsator 2], [Pin 2 (1B)],
-    [Pin 3 (1Y)], [Pin 4 (2A)],
-    [Pin 4 (2A)], [Pin 5 (2B)],
-    [Pin 6 (2Y)], [Próbnik / Oscyloskop]
-  )
-)
-
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
@@ -536,7 +518,7 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
       [5V / 0V], [U1:14 / U1:7],
       [Impulsator 1], [U1:1],
       [Impulsator 2], [U1:2],
-      [U1:3], [Wyjście do U2]
+      [U1:3], [Kabel do układu U2]
     )
   ),
   figure(
@@ -548,8 +530,8 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
       align: center,
       [*Od*], [*Do*],
       [5V / 0V], [U2:14 / U2:7],
-      [Wyjście U1:3], [U2:1 oraz U2:2],
-      [U2:3], [Próbnik / Osc.]
+      [Kabel z pinu U1:3], [U2:1 oraz U2:2 (Zworka)],
+      [U2:3], [Próbnik / Oscyloskop]
     )
   )
 )
@@ -574,20 +556,38 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
 )
 
 === Suma Logiczna (OR) z NAND
-#figure(
-  kind: "table",
-  supplement: [Tabela],
-  caption: [Połączenia dla funkcji OR z bramek NAND],
-  table(
-    columns: 2,
-    align: center,
-    [*Od*], [*Do*],
-    [5V / 0V], [Pin 14 ($V_(C C)$) / Pin 7 (GND)],
-    [Impulsator 1], [Pin 1 (1A) oraz Pin 2 (1B)],
-    [Impulsator 2], [Pin 4 (2A) oraz Pin 5 (2B)],
-    [Pin 3 (1Y)], [Pin 9 (3A)],
-    [Pin 6 (2Y)], [Pin 10 (3B)],
-    [Pin 8 (3Y)], [Próbnik / Oscyloskop]
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U1 (Podwójny negator wejść)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [5V / 0V], [U1:14 / U1:7],
+      [Impulsator 1], [U1:1 i U1:2],
+      [Impulsator 2], [U1:4 i U1:5],
+      [U1:3], [Kabel do układu U2:1],
+      [U1:6], [Kabel do układu U2:2]
+    )
+  ),
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U2 (Bramka sumująca)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [5V / 0V], [U2:14 / U2:7],
+      [Kabel z pinu U1:3], [U2:1],
+      [Kabel z pinu U1:6], [U2:2],
+      [U2:3], [Próbnik / Oscyloskop]
+    )
   )
 )
 
@@ -616,6 +616,20 @@ Poniżej wyniki z oscyloskopu dla bramki NAND, realizującej funkcję negacji, i
 Poniżej zestawiono wyniki badań dla układów zrealizowanych przy użyciu bramek NOR, pełniących funkcje negacji, sumy logicznej (OR) oraz iloczynu logicznego (AND).
 
 === Funkcja Negacji (NOT) z NOR
+#figure(
+  kind: "table",
+  supplement: [Tabela],
+  caption: [Połączenia dla funkcji NOT (bramka NOR)],
+  table(
+    columns: 2,
+    align: center,
+    [*Od*], [*Do*],
+    [5V / 0V], [U1:14 / U1:7],
+    [Impulsator 1], [U1:2 oraz U1:3],
+    [U1:1], [Próbnik / Oscyloskop]
+  )
+)
+
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
@@ -636,6 +650,40 @@ Poniżej zestawiono wyniki badań dla układów zrealizowanych przy użyciu bram
 #grid(
   columns: (1fr, 1fr),
   gutter: 1em,
+  align: top,
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U1 (Podwójny negator wejść)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [Zasilacz (+5V, GND)], [U1:14 / U1:7],
+      [Impulsator 1], [U1:2 oraz U1:3],
+      [Impulsator 2], [U1:5 oraz U1:6],
+      [U1:1], [Kabel do układu U2:2],
+      [U1:4], [Kabel do układu U2:3]
+    )
+  ),
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U2 (Bramka NOR)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [Zasilacz (+5V, GND)], [U2:14 / U2:7],
+      [Kabel z pinu U1:1], [U2:2],
+      [Kabel z pinu U1:4], [U2:3],
+      [U2:1 (Wyjście AND)], [Próbnik / Oscyloskop]
+    )
+  )
+)
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
   align: center,
   figure(kind: "chart", supplement: [Wykres], image("./4_3/nor/and00.png", width: 95%), caption: [NOR jako AND: wejścia 00]),
   figure(kind: "chart", supplement: [Wykres], image("./4_3/nor/and11.png", width: 95%), caption: [NOR jako AND: wejścia 11])
@@ -652,6 +700,38 @@ Poniżej zestawiono wyniki badań dla układów zrealizowanych przy użyciu bram
 )
 
 === Suma Logiczna (OR) z NOR
+#grid(
+  columns: (1fr, 1fr),
+  gutter: 1em,
+  align: top,
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U1 (Bramka NOR)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [Zasilacz (+5V, GND)], [U1:14 / U1:7],
+      [Impulsator 1], [U1:2],
+      [Impulsator 2], [U1:3],
+      [U1:1], [Kabel do układu U2]
+    )
+  ),
+  figure(
+    kind: "table",
+    supplement: [Tabela],
+    caption: [Układ U2 (Negator)],
+    table(
+      columns: 2,
+      align: center,
+      [*Od*], [*Do*],
+      [Zasilacz (+5V, GND)], [U2:14 / U2:7],
+      [Kabel z pinu U1:1], [U2:2 oraz U2:3 (Zworka)],
+      [U2:1], [Próbnik / Oscyloskop]
+    )
+  )
+)
 #grid(
   columns: (1fr, 1fr, 1fr),
   gutter: 1em,
