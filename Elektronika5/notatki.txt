@@ -1,0 +1,29 @@
+Połączenia:
+- Impulsator górny - CLK
+- Impulsator dolny - D
+
+Zad 1 (7474)
+- zasilanie: 5V lewy = 5V prawy = 5.04 V
+opornik użyty do 5V - 9.98kOm
+opornik użyty do 0V - 390Om
+- impulsator górny = CLK
+- impulsator dolny = D
+- resety (PR i CLR):
+  PR=L, CLR=H ustawia zawsze 1
+  PR=H, CLR=L ustawia zawsze 0
+
+Zad 2
+- impulsator górny = CLK
+- impulsator dolny = D
+
+Zad 3
+- w generatorze amplituda 4.5V po stan wysoki
+- offset na 2V
+
+Zad 4
+- mod 16: trzeba połączyć szeregowo QA z CKB (wejście B)
+10(10) = 1010(2)
+- mod 10: podłączamy wyjścia QB i QD do obu wejść resetu.
+
+Zad 6
+słowo 10100101
