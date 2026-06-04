@@ -219,7 +219,7 @@ Zbadano przebieg napięcia wyjściowego komparatora dla różnych kształtów na
 #figure(
   kind: "chart",
   supplement: [Wykres],
-  image("./6_1/komparator/charakterystyka_komparatora_pro.png", width: 80%, height: 31%),
+  image("./6_1/komparator/charakterystyka_komparatora_pro.png", width: 80%),
   alt: "Chart png here",
   caption: [Wykres charakterystyki amplitudowej komparatora
   ],
@@ -333,6 +333,279 @@ pamięcią SRAM. Postępując analogicznie jak opisano w punktach 3.2 i 3.3 zapr
 pamięć SRAM i sprawdzić działanie przetwornika. Układ można zaprojektować w ten sposób
 aby amplituda sygnału po konwersji ulegała odwróceniu.
 - 3.5 Dla przebiegu sinusoidalnego określić zakres częstotliwości, w którym przetwornik działa prawidłowo.
+
+=== 3.1 Budowa i działanie
+
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./6_3/3_1/IMG_4538.png", width: 60%),
+  alt: "Chart png here",
+  caption: [Budowa przetwornika A/C typu FLASH
+  ],
+) <stanowisko>
+
+Przetwornik analogowo-cyfrowy typu FLASH składa się z trzech głównych modułów: modułu komparatorów, transkodera RPP-S (Ręcznie Programowana Pamięć Stała) oraz transkodera RPP-SRAN (Ręcznie Programowana Pamięć SRAM).
+
+ *Moduł komparatorów:* Zawiera zestaw komparatorów napięcia, które na bieżąco porównują napięcie wejściowe z ustalonymi poziomami odniesienia. Każdy komparator generuje sygnał wyjściowy, który jednoznacznie wskazuje, czy napięcie wejściowe jest wyższe, czy niższe od danego progu napięciowego.
+
+ *Transkoder RPP-S (Pamięć Stała):* Jest to moduł programowany ręcznie w celu przypisania określonych wartości binarnych do kombinacji sygnałów wyjściowych z modułu komparatorów. Programowanie realizuje się poprzez ustawienie odpowiednich napięć na wejściach modułu komparatorów, co skutkuje zapaleniem określonych diod na wyjściu transkodera. Należy zwrócić uwagę, że diody na wyjściu RPP-S reprezentują stany zanegowane zapalona dioda sygnalizuje niski stan logiczny (0), natomiast zgaszona wskazuje na wysoki stan logiczny (1).
+
+*Transkoder RPP-SRAN (Pamięć SRAM):* Moduł ten jest programowany w sposób analogiczny do pamięci stałej, jednakże wykorzystanie pamięci ulotnej SRAM pozwala na dynamiczną zmianę konfiguracji podczas działania układu. Zapewnia to znacznie większą elastyczność i umożliwia przeprowadzanie bardziej zaawansowanych operacji konwersji A/C.
+
+=== 3.2 Programowanie transkodera RPP-S
+
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  inset: (top: 1em, bottom: 1em),
+  [
+    #figure(
+      image("./6_3/3_2/IMG_4539.JPG", width: 100%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Nadanie stałej wartości napięcia]
+    ) <przebieg_kwadrat>
+  ],
+  [
+    #figure(
+      image("./6_3/3_2/IMG_4540.png", width: 100%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Praca przetwornika A/C typu FLASH z transkoderem RPP-S]
+    ) <przebieg_sinus>
+  ]
+)
+
+Diody na module komparatorów wizualizują stany logiczne wyjść poszczególnych komparatorów. Wraz ze wzrostem napięcia wejściowego, komparatory kolejno zmieniają swój stan, generując sygnał w postaci tzw. kodu termometrycznego (zapalanie się kolejnych diod w rzędzie). 
+
+Proces programowania transkodera RPP-S polega na regulacji napięcia wejściowego i fizycznym przypisywaniu (za pomocą przełączników układu) odpowiedniej wartości binarnej do konkretnej liczby aktywnych komparatorów. W ten sposób uzyskuje się liniową proporcjonalność między analogowym napięciem wejściowym a cyfrową wartością binarną na wyjściu układu. Zgodnie ze specyfikacją, należy uwzględnić fakt, że diody na wyjściu transkodera RPP-S reprezentują stany zanegowane - świecąca dioda oznacza stan niski (logiczne 0), natomiast zgaszona stan wysoki (logiczne 1).
+
+Przykład użycia:
+#grid(
+  columns: 2,
+  gutter: 1em,
+  inset: (top: 1em, bottom: 1em),
+  [
+    #figure(
+      image("./6_3/3_2/IMG_4542.png", width: 80%, height: 40%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Maksymalne napięcie]
+    ) <przebieg_kwadrat>
+  ],
+  [
+    #figure(
+      image("./6_3/3_2/IMG_4543.JPG", width: 80%, height: 40%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Inne napięcie]
+    ) <przebieg_sinus>
+  ]
+)
+
+=== 3.3 Badanie działania przetwornika
+
+Po zaprogramowaniu pamięci stałej, do układu wpięto konwerter C/A, a na wejście podano zmienne napięcie (sinusoidalne oraz trójkątne). Zgodnie z wytycznymi, zadbano o to, by napięcie nie spadało poniżej 0 V, aby układ pracował w swoim optymalnym zakresie.
+
+Na oscyloskopie zaobserwowano klasyczny efekt działania cyfrowego przetwarzania sygnałów - gładki przebieg analogowy z wejścia (żółty) zamienił się w "schodki" po stronie wyjściowej (niebieski). Jest to bezpośredni dowód na kwantyzację sygnału przez przetwornik A/C. Każdy schodek odpowiada zmianie stanu na wyjściu modułu komparatorów po przekroczeniu kolejnego progu napięcia odniesienia.
+
+#grid(
+  columns: 3,
+  gutter: 1em,
+  inset: (top: 1em, bottom: 1em),
+  [
+    #figure(
+      image("./6_3/3_3/schodki 3_3.png", width: 100%),
+      kind: "chart",
+      supplement: [Wykres],
+      caption: [Sygnał sinusoidalny i widoczna kwantyzacja (efekt schodków)]
+    ) <przebieg_sinus_schodki>
+  ],
+  [
+    #figure(
+      image("./6_3/3_3/square real 3_3.png", width: 100%),
+      kind: "chart",
+      supplement: [Wykres],
+      caption: [Sygnał prostokątny]
+    ) <przebieg_sinus_schodki>
+  ],
+  [
+    #figure(
+      image("./6_3/3_3/square 3_3.png", width: 100%),
+      kind: "chart",
+      supplement: [Wykres],
+      caption: [Sygnał trójkątny]
+    ) <przebieg_trojkat_schodki>
+  ]
+)
+
+#v(1em)
+#align(center)[
+  #link("https://ujchmura-my.sharepoint.com/:v:/g/personal/mateusz_1_kaminski_student_uj_edu_pl/IQC8B0kqMGBZTKb2aUemB2IxAdzjDbdZS9lGqdOkaJquDIw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=9qhDvA")[
+    #rect(fill: luma(240), stroke: 1pt + black, radius: 4pt, inset: 10pt)[
+      *Kliknij tutaj, aby obejrzeć nagranie z działania dla fali sinusoidalnej*
+    ]
+  ]
+]
+
+#align(center)[
+  #link("https://ujchmura-my.sharepoint.com/:v:/g/personal/mateusz_1_kaminski_student_uj_edu_pl/IQAVKEOthSyBTo8BywiSBA2ZAZWXln3jIrV9JXvv62WTEQQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=C99cBG")[
+    #rect(fill: luma(240), stroke: 1pt + black, radius: 4pt, inset: 10pt)[
+      *Kliknij tutaj, aby obejrzeć nagranie z działania dla fali prostokątnej*
+    ]
+  ]
+]
+
+#align(center)[
+  #link("https://ujchmura-my.sharepoint.com/:v:/g/personal/mateusz_1_kaminski_student_uj_edu_pl/IQBEwP70OKKuSo2AuiDJtaFuASNM5KoirJmRgtFOg0F-zq8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=YJAI1Z")[
+    #rect(fill: luma(240), stroke: 1pt + black, radius: 4pt, inset: 10pt)[
+      *Kliknij tutaj, aby obejrzeć nagranie z działania dla fali trójkątnej*
+    ]
+  ]
+]
+#v(1em)
+
+== 3.4 Użycie modułu z pamięcią SRAM
+
+Zgodnie z instrukcją, z układu wyleciał ręczny transkoder RPP-S, a jego miejsce zajął moduł z pamięcią SRAM. Samo programowanie przebiegło podobnie jak w poprzednim punkcie, ale z tą różnicą, że SRAM daje nam znacznie większe pole do popisu i można go dynamicznie przeprogramować oraz zaprogramowano sygnał z odwrotną amplitudą, czyli binarnie szliśmy w dół do zera.
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  inset: (top: 1em, bottom: 1em),
+  [
+    #figure(
+      image("./6_3/3_4/IMG_4547.png", width: 100%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Podpięcie modułu z pamięcią SRAM]
+    ) <sram_normal>
+  ],
+  [
+    #figure(
+      image("./6_3/3_4/IMG_4549.png", width: 100%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Działanie modułu o stałej wartości napięcia z odwróconą amplitudą]
+    ) <sram_inverted>
+  ]
+)
+
+
+#align(center)[
+  #link("https://ujchmura-my.sharepoint.com/:v:/g/personal/mateusz_1_kaminski_student_uj_edu_pl/IQDGvkAMfnHZQbCThVvKE6AbAXCJ7uzmtEojYOopb7rOtMs?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=yQFaNe")[
+    #rect(fill: luma(240), stroke: 1pt + black, radius: 4pt, inset: 10pt)[
+      *Kliknij tutaj, aby obejrzeć nagranie z działania przetwornika*
+    ]
+  ]
+]
+#v(1em)
+
+=== 3.5 Zakres częstotliwości pracy przetwornika
+
+Ostatnim etapem tego ćwiczenia było określenie zakresu częstotliwości, w którym przetwornik A/C typu FLASH zachowuje się stabilnie i działa prawidłowo. W tym celu na wejście układu podano sygnał sinusoidalny, a następnie stopniowo zwiększano jego częstotliwość, bacznie obserwując zrekonstruowany sygnał na oscyloskopie.
+
+*Wyniki pomiarów:*
+Z przeprowadzonych testów wynika, że przetwornik działał bez zarzutu do częstotliwości około *78 kHz*. 
+
+Po przekroczeniu tej granicy układ zaczął łapać zadyszkę. Fizyczne ograniczenia elementów (czas propagacji sygnału w komparatorach i pamięci SRAM/RPP-S) sprawiły, że układ nie nadążał z próbkowaniem i konwersją. W efekcie charakterystyczne, równe "schodki" ulegały rozmyciu, a sygnał wyjściowy stawał się mocno zniekształcony, co jednoznacznie wyznaczyło kres możliwości pracy poprawnej tego stanowiska.
+
+#grid(
+  columns: 3,
+  gutter: 1em,
+  inset: (top: 1em, bottom: 1em),
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/1hz.png", width: 100%),
+      caption: [1 Hz]
+    ) <freq_1hz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/4.9hz.png", width: 100%),
+      caption: [4.9 Hz]
+    ) <freq_4_9hz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/59hz.png", width: 100%),
+      caption: [59 Hz]
+    ) <freq_59hz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/300hz.png", width: 100%),
+      caption: [300 Hz]
+    ) <freq_300hz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/660hz.png", width: 100%),
+      caption: [660 Hz]
+    ) <freq_660hz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/1.7khz.png", width: 100%),
+      caption: [1.7 kHz]
+    ) <freq_1_7khz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/11.3khz.png", width: 100%),
+      caption: [11.3 kHz]
+    ) <freq_11_3khz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/77.9khz.png", width: 100%),
+      caption: [77.9 kHz]
+    ) <freq_77_9khz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/117khz.png", width: 100%),
+      caption: [117 kHz]
+    ) <freq_117khz>
+  ],
+  [
+    #figure(
+      kind : "chart",
+      supplement: [Wykres],
+      image("./6_3/3_5/221khz.png", width: 100%),
+      caption: [221 kHz]
+    ) <freq_221khz>
+  ]
+)
+
+== Wnioski 
+Na podstawie przeprowadzonych badań przetwornika A/C typu FLASH oraz analizy zebranych oscylogramów, można sformułować następujące wnioski końcowe:
+
+* Weryfikacja działania przetwornika:* Pomyślnie zaprogramowaliśmy transkoder tak, aby generował poprawne wartości binarne. Zrzuty z oscyloskopu ze świetnie widocznymi "schodkami" udowodniły, że nasz układ skutecznie próbkuje i kwantyzuje gładki sygnał wejściowy.
+
+  *Testy pamięci SRAM:* Udało nam się bez problemu zastąpić klasyczny przełącznikowy transkoder pamięcią SRAM. Udowodniliśmy jej użyteczność, sprzętowo odwracając amplitudę sygnału w locie. Pokazało to, że tego typu pamięć daje ogromną swobodę w szybkiej zmianie działania całego układu.
+
+   *Sprawdzenie granic możliwości układu:* Przeprowadziliśmy testy stresowe, zwiększając częstotliwość sygnału wejściowego. Udało się zaobserwować, że o ile przy kilku-kilkudziesięciu kilohercach układ radzi sobie świetnie, to powyżej 100 kHz zaczyna gubić klatki. Przy około 221 kHz doszliśmy do ściany - elektronika przestała nadążać z konwersją, co objawiło się drastycznym spadkiem amplitudy i potężnym przesunięciem fazowym.
 
 #pagebreak()
 
