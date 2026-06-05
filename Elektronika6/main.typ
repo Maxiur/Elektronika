@@ -605,7 +605,8 @@ Na podstawie przeprowadzonych badań przetwornika A/C typu FLASH oraz analizy ze
 
   *Testy pamięci SRAM:* Udało nam się bez problemu zastąpić klasyczny przełącznikowy transkoder pamięcią SRAM. Udowodniliśmy jej użyteczność, sprzętowo odwracając amplitudę sygnału w locie. Pokazało to, że tego typu pamięć daje ogromną swobodę w szybkiej zmianie działania całego układu.
 
-   *Sprawdzenie granic możliwości układu:* Przeprowadziliśmy testy stresowe, zwiększając częstotliwość sygnału wejściowego. Udało się zaobserwować, że o ile przy kilku-kilkudziesięciu kilohercach układ radzi sobie świetnie, to powyżej 100 kHz zaczyna gubić klatki. Przy około 221 kHz doszliśmy do ściany - elektronika przestała nadążać z konwersją, co objawiło się drastycznym spadkiem amplitudy i potężnym przesunięciem fazowym.
+   *Sprawdzenie granic możliwości układu:* Przeprowadziliśmy testy zwiększając częstotliwość sygnału wejściowego. Udało się zaobserwować, że o ile przy kilku-kilkudziesięciu kilohercach układ radzi sobie świetnie, to powyżej 100 kHz zaczyna gubić klatki. Przy około 221 kHz doszliśmy do ściany - elektronika przestała nadążać z konwersją, co objawiło się drastycznym spadkiem amplitudy i potężnym przesunięciem fazowym.
+
 
 #pagebreak()
 
