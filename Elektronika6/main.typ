@@ -733,9 +733,6 @@ Rozdzielczość napięciową zmierzyliśmy eksperymentalni i wyłapywaliśmy osc
 Zarejestrowany na oscyloskopie przebieg przedstawia ładną strukturę schodkową. Wysokość pojedynczego schodka możemy obliczyć z:
 $ "LSB" = 5.0 "V" / 255 approx 19.61 "mV" $
 
-*Porównanie z 3-bitowym przetwornikiem FLASH:*
-Zestawiając ten układ z 3-bitowym przetwornikiem FLASH analizowanym w punkcie 3.3 (gdzie $LSB = 0.71 "V"$), widok jest jasny – przejście na 8 bitów zmniejszyło krok kwantyzacji ponad 36-krotnie. Pozwoliło to pozbyć się gigantycznego błędu odwzorowania i diametralnie zwiększyło dokładność pomiarów.
-
 === 4.4 Określenie maksymalnej i minimalnej częstotliwości pracy przetwornika
 
 W trybie kompensacyjnym czas konwersji jest zależny od mierzonego napięcia. Najdłużej na odczyt poczekamy (najgorszy wariant) przy podaniu maksymalnego napięcia na wejście (ok. 5 V) - wtedy licznik musi zliczyć od zera aż do 255. 
@@ -834,13 +831,13 @@ W pierwszej części wykazano, że dedykowany komparator napięcia (LM311) chara
 
 W kolejnym etapie pomyślnie przebadano 3-bitowy przetwornik analogowo-cyfrowy typu FLASH (z wykorzystaniem pamięci stałej oraz SRAM). Układ poprawnie dokonywał kwantyzacji sygnału, wykazując stabilną pracę w paśmie częstotliwości do około 100 kHz.
 
-Ostatnia część dotyczyła weryfikacji 8-bitowego przetwornika działającego w trybie kompensacyjnym oraz SAR. Osiągnięta rozdzielczość napięciowa (wyznaczona na ok. 19.6 mV) pokryła się z obliczeniami teoretycznymi, co dowiodło ponad 36-krotnego wzrostu dokładności w stosunku do 3-bitowego układu FLASH analizowanego w poprzednim zadaniu. Zaobserwowane czasy konwersji i ich zależność od częstotliwości taktowania układu również w pełni odzwierciedlały zakładane proporcje (podział częstotliwości zegara przez 8).
+Ostatnia część dotyczyła weryfikacji 8-bitowego przetwornika działającego w trybie kompensacyjnym oraz SAR. Osiągnięta rozdzielczość napięciowa (wyznaczona na ok. 19.6 mV) pokryła się z obliczeniami teoretycznymi, co dowiodło ponad 36-krotnego wzrostu dokładności w stosunku do 3-bitowego układu FLASH analizowanego w poprzednim zadaniu.
 
 Przeprowadzone eksperymenty zakończyły się pełnym sukcesem, a wykonane pomiary charakteryzowały się dużą zbieżnością z teorią.
 
-#read("./notatki.txt")
 
-#pagebreak()
+== Notatki
+#read("./notatnik.txt")
 
 // Główny spis treści
 #pagebreak()
