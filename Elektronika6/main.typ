@@ -300,10 +300,10 @@ Wykres wykorzystany z Laboratorium III
   ],
 ) <stanowisko>
 
-Jak widać na poniższych zrzutach, przy wyższych częstotliwościach zwykły wzmacniacz operacyjny zaczyna się dusić i mocno zniekształca sygnał w porównaniu do dedykowanego układu LM311.
+Jak widać na poniższych zrzutach, przy wyższych częstotliwościach zwykły wzmacniacz operacyjny ulega znacznym zniekształceniom i nie nadąża za sygnałem w porównaniu do dedykowanego układu LM311.
 
 == Wnioski
-Z przeprowadzonych pomiarów wynika, że komparator napięcia LM311 skutecznie generuje sygnał prostokątny z różnych kształtów napięć wejściowych, takich jak sinusoidalne, trójkątne i prostokątne, nawet przy wyższych częstotliwościach. Wzmacniacz operacyjny, choć może być używany jako komparator, nie jest zoptymalizowany do tego celu i zaczyna się dusić przy wyższych częstotliwościach, co prowadzi do znacznego zniekształcenia sygnału wyjściowego. Dlatego dedykowany komparator jest bardziej odpowiedni do zastosowań wymagających szybkiego przełączania i precyzyjnego porównywania napięć.
+Z przeprowadzonych pomiarów wynika, że komparator napięcia LM311 skutecznie generuje sygnał prostokątny z różnych kształtów napięć wejściowych, takich jak sinusoidalne, trójkątne i prostokątne, nawet przy wyższych częstotliwościach. Wzmacniacz operacyjny, choć może być używany jako komparator, nie jest zoptymalizowany do tego celu i wprowadza znaczne zniekształcenia przy wyższych częstotliwościach, co prowadzi do drastycznego zniekształcenia sygnału wyjściowego. Dlatego dedykowany komparator jest bardziej odpowiedni do zastosowań wymagających szybkiego przełączania i precyzyjnego porównywania napięć.
 
 = Ćwiczenie 6.3
 == Treść
@@ -467,9 +467,15 @@ Na oscyloskopie zaobserwowano klasyczny efekt działania cyfrowego przetwarzania
 ]
 #v(1em)
 
+*Rozdzielczość napięciowa przetwornika FLASH:*
+Badany przetwornik analogowo-cyfrowy typu FLASH wyposażony jest w 7 komparatorów napięcia, co pozwala na zakodowanie sygnału wejściowego na 3 bitach (8 różnych stanów wyjściowych modulo 8). Przy zastosowanym napięciu odniesienia $U_"ref" = 5.0 "V"$, rozdzielczość napięciowa (szerokość przedziału kwantyzacji) wynosi:
+$ "LSB"_"FLASH" = U_"ref" / 7 = 5.0 "V" / 7 approx 0.71 "V" $
+
+#v(1em)
+
 == 3.4 Użycie modułu z pamięcią SRAM
 
-Zgodnie z instrukcją, z układu wyleciał ręczny transkoder RPP-S, a jego miejsce zajął moduł z pamięcią SRAM. Samo programowanie przebiegło podobnie jak w poprzednim punkcie, ale z tą różnicą, że SRAM daje nam znacznie większe pole do popisu i można go dynamicznie przeprogramować oraz zaprogramowano sygnał z odwrotną amplitudą, czyli binarnie szliśmy w dół do zera.
+Zgodnie z instrukcją, odłączono ręczny transkoder RPP-S, a jego miejsce zajął moduł z pamięcią SRAM. Samo programowanie przebiegło podobnie jak w poprzednim punkcie, ale z tą różnicą, że SRAM zapewnia znacznie większą elastyczność i można go dynamicznie przeprogramować oraz zaprogramowano sygnał z odwrotną amplitudą, czyli binarnie odliczano w dół do zera.
 
 #grid(
   columns: 2,
@@ -510,7 +516,7 @@ Ostatnim etapem tego ćwiczenia było określenie zakresu częstotliwości, w kt
 *Wyniki pomiarów:*
 Z przeprowadzonych testów wynika, że przetwornik działał bez zarzutu do częstotliwości około *78 kHz*. 
 
-Po przekroczeniu tej granicy układ zaczął łapać zadyszkę. Fizyczne ograniczenia elementów (czas propagacji sygnału w komparatorach i pamięci SRAM/RPP-S) sprawiły, że układ nie nadążał z próbkowaniem i konwersją. W efekcie charakterystyczne, równe "schodki" ulegały rozmyciu, a sygnał wyjściowy stawał się mocno zniekształcony, co jednoznacznie wyznaczyło kres możliwości pracy poprawnej tego stanowiska.
+Po przekroczeniu tej granicy w pracy układu zaczęły pojawiać się zniekształcenia. Fizyczne ograniczenia elementów (czas propagacji sygnału w komparatorach i pamięci SRAM/RPP-S) sprawiły, że układ nie nadążał z próbkowaniem i konwersją. W efekcie charakterystyczne, równe "schodki" ulegały rozmyciu, a sygnał wyjściowy stawał się mocno zniekształcony, co jednoznacznie wyznaczyło kres możliwości pracy poprawnej tego stanowiska.
 
 #grid(
   columns: 3,
@@ -605,8 +611,234 @@ Na podstawie przeprowadzonych badań przetwornika A/C typu FLASH oraz analizy ze
 
   *Testy pamięci SRAM:* Udało nam się bez problemu zastąpić klasyczny przełącznikowy transkoder pamięcią SRAM. Udowodniliśmy jej użyteczność, sprzętowo odwracając amplitudę sygnału w locie. Pokazało to, że tego typu pamięć daje ogromną swobodę w szybkiej zmianie działania całego układu.
 
-   *Sprawdzenie granic możliwości układu:* Przeprowadziliśmy testy zwiększając częstotliwość sygnału wejściowego. Udało się zaobserwować, że o ile przy kilku-kilkudziesięciu kilohercach układ radzi sobie świetnie, to powyżej 100 kHz zaczyna gubić klatki. Przy około 221 kHz doszliśmy do ściany - elektronika przestała nadążać z konwersją, co objawiło się drastycznym spadkiem amplitudy i potężnym przesunięciem fazowym.
+   *Sprawdzenie granic możliwości układu:* Przeprowadziliśmy testy zwiększając częstotliwość sygnału wejściowego. Udało się zaobserwować, że o ile przy kilku-kilkudziesięciu kilohercach układ radzi sobie świetnie, to powyżej 100 kHz przestaje poprawnie próbkować. Przy około 221 kHz osiągnięto granicę możliwości układu - sprzęt przestał nadążać z konwersją, co objawiło się drastycznym spadkiem amplitudy i potężnym przesunięciem fazowym.
 
+
+= Ćwiczenie 6.4
+== Treść
+4. Przetwornik A/C działający w oparciu o przetwornik C/A
+- 4.1 Zapoznać się, ze schematem przetwornika A/C działającego w oparciu o przetwornik C/A.
+  Zwrócić uwagę na następujące elementy: przetwornik C/A, komparator, generator sygnału
+  zegarowego, licznik, rejestr SAR, wyjście na wyświetlacz.
+- 4.2 Zbadać poprawność działania przetwornika.
+  Zworkę regulacji częstotliwości ustawić w pozycji Z2, za pomocą zworki przełącznik ustawić w
+  pozycję „KOMPENS.”. Przy pomocy potencjometru ustawić napięcie wejściowe na wybranym
+  poziomie (około 3 V). Zresetować licznik przyciskiem RESET, zaobserwować uzyskaną wartość
+  cyfrową. Zmierzyć napięcie na wyjściu przetwornika C/A przy pomocy oscyloskopu i sprawdzić
+  czy jest ono takie samo jak napięcie podawane przez potencjometr.
+- 4.3 Określić rozdzielczość napięciową przetwornika.
+  Zworkę regulacji częstotliwości ustawić w pozycji Z2. Zresetować licznik przyciskiem RESET.
+  Zwiększać napięcie na potencjometrze aż do uzyskania skoku napięcia na wyjściu C/A.
+  Następnie powoli zwiększać napięcie wejściowe by uzyskać skok napięcia. Wykonując pomiar
+  napięcia przed i po skoku można wyznaczyć rozdzielczość napięciową.
+- 4.4 Określić maksymalną i minimalną częstotliwość pracy przetwornika.
+  Zworkę regulacji częstotliwości ustawić w pozycji Z2. Ustawić maksymalne napięcie wejściowe
+  przy pomocy potencjometru. Zresetować licznik i zmierzyć czas po którym licznik doliczy do
+  255 (maksymalna wartość liczby 8 bitowej). Podzielić zmierzony czas przez 255. Odwrotność
+  otrzymanej wartości to minimalna częstotliwość pracy przetwornika. Jej 8 krotność powinna
+  odpowiadać maksymalnej częstotliwości pracy przetwornika. Aby to sprawdzić wykonać opisany
+  powyżej pomiar przy ustawieniu zworki regulacji częstotliwości w pozycji Z3.
+- 4.5 Zbadać działanie przetwornika opartego o rejestr SAR.
+  Za pomocą zworki ustawić przełącznik w pozycję SAR. Następnie wybrać tryb krokowy za
+  pomocą zworki „KROK” regulacji częstotliwości. Zresetować przetwornik i nastawić napięcie
+  wejściowe potencjometrem na około 1V. Za pomocą przycisku „KROK” wykonać konwersję
+  zapisując kolejne wartości napięcia C/A oraz wartości sygnałów dochodzących do przetwornika
+  C/A (wartość dziesiętna). Pomiar powtórzyć dla napięć wejściowych ustawionych na około 2,5V
+  oraz 4V.
+- 4.6 Zbadać częstotliwość pracy przetwornika opartego o rejestr SAR.
+  Zworkę regulacji częstotliwości ustawić w pozycji Z2. Napięcie wejściowe ustawić na około 3V.
+  Dokonać pomiaru czasu konwersji podobnie jak w przypadku punktu 2.4. Pomiary powtórzyć dla
+  maksymalnego napięcia wejściowego oraz dla zworki regulacji częstotliwości ustawionej
+  w pozycji Z3.
+
+=== 4.1 Budowa i działanie
+
+Zgodnie z instrukcją zapoznaliśmy się ze schematem przetwornika A/C z kompensacją cyfrową. Układ ten opiera się na sprzężeniu zwrotnym - napięcie wejściowe $U_"we"$ jest na bieżąco porównywane przez komparator z napięciem z wewnętrznego przetwornika C/A (DAC). 
+
+
+W zależności od wyniku porównania, blok sterowania reguluje sygnał cyfrowy, starając się zrównać wygenerowane napięcie DAC z napięciem wejściowym. Gdy to nastąpi, cyfrowa wartość trafia na wyjście jako gotowy wynik.
+
+Główne elementy układu to:
+- *Przetwornik C/A (DAC):* generuje napięcie pomocnicze na potrzeby weryfikacji.
+- *Komparator:* decyduje, czy napięcie z zewnątrz jest większe, czy mniejsze od naszego wygenerowanego przez DAC.
+- *Generator zegarowy:* nadaje tempo pracy układu; zworkami da się regulować jego szybkość.
+- *Licznik:* w trybie kompensacyjnym powoli zlicza takty od zera w górę (tworząc schodkową rampę).
+- *Rejestr SAR:* używany w alternatywnym, szybszym trybie - przeszukuje stany korzystając z algorytmu aproksymacji sukcesywnej.
+- *Wyświetlacz:* pokazuje nam na żywo wynik binarny (diody), dziesiętny oraz w postaci odtworzonego napięcia DAC.
+
+#figure(
+  kind: "photo",
+  supplement: [Zdjęcie],
+  image("./6_4/schemat blokowy.png", width: 70%),
+  caption: [Schemat blokowy badanego przetwornika ADC SAR / Kompensacyjnego]
+) <schemat_blokowy_4_1>
+
+=== 4.2 Badanie poprawności działania przetwornika
+
+W celu zbadania poprawności działania przetwornika w trybie kompensacyjnym (zworka przełącznika w pozycji `KOMPENS.`), ustawiono zworkę generatora w pozycję `Z2` (wolniejsze taktowanie) i podano stałe napięcie wejściowe. Wykonano pomiary dla różnych wartości napięcia wejściowego, porównując wartość wyświetlaną na multimetrze z wartościami binarnymi, dziesiętnymi oraz napięciem DAC prezentowanym na wyświetlaczu modułu.
+
+Przykładowo, przy napięciu wejściowym $U_"we" = 1.587 "V"$ (pomiar multimetrem), po zresetowaniu przetwornika licznik doliczył do wartości dziesiętnej *81*, a na wyświetlaczu modułu napięcie DAC wskazało *1.58 V*. Odpowiadało to stanowi binarnemu $01010001_2$ (diody dla bitów $2^6$, $2^4$ oraz $2^0$ świeciły). Obliczona teoretyczna wartość napięcia dla kroku $U_"ref" / 255$ wynosi:
+$ U_"DAC, teor" = 81 times (5.00 "V" / 255) approx 1.588 "V" $
+Wyniki te wykazują bardzo wysoką zgodność. W @tabela_pomiary_kompens przedstawiono zebrane punkty pomiarowe dla kilku różnych napięć wejściowych.
+
+#figure(
+  kind: "table",
+  supplement: [Tabela],
+  table(
+    columns: (1.5fr, 1.2fr, 1.5fr, 1.8fr),
+    align: center + horizon,
+    [*Napięcie wejściowe $U_"we"$ (V)*], [*Wartość cyfrowa $D$*], [*Stan binarny*], [*Napięcie $U_"DAC"$ na wyświetlaczu (V)*],
+    [1.587], [81], [$01010001_2$], [1.58],
+    [1.620], [83], [$01010011_2$], [1.61],
+    [1.715], [88], [$01011000_2$], [1.71],
+    [2.018], [103], [$01100111_2$], [2.02]
+  ),
+  caption: [Wyniki pomiarów poprawności działania w trybie kompensacyjnym]
+) <tabela_pomiary_kompens>
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+    #figure(
+      image("./6_4/IMG_4556.png", width: 100%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Układ w stanie równowagi dla wartości 81 ($U_"we"$ = 1.587 V)]
+    ) <pomiar_81>
+  ],
+  [
+    #figure(
+      image("./6_4/IMG_4557.png", width: 100%),
+      kind: "photo",
+      supplement: [Zdjęcie],
+      caption: [Układ w stanie równowagi dla wartości 103 ($U_"DAC"$ = 2.02 V)]
+    ) <pomiar_103>
+  ]
+)
+
+=== 4.3 Rozdzielczość napięciowa przetwornika
+
+Rozdzielczość wyznacza najmniejszą możliwą zmianę napięcia, na jaką nasz układ w ogóle zareaguje. Pojedynczy krok kwantyzacji określany pojęciem *LSB* (najmniej znaczący bit). Z kolei na drugim końcu znajduje się *MSB* (najbardziej znaczący bit), którego wartość to po prostu połowa maksymalnego mierzonego napięcia.
+
+Rozdzielczość napięciową zmierzyliśmy eksperymentalni i wyłapywaliśmy oscyloskopem najmniejsze zauważalne skoki napięcia wyjściowego C/A.
+
+#figure(
+  kind: "chart",
+  supplement: [Wykres],
+  image("./6_4/skoki napięcia.png", width: 70%),
+  caption: [Przełączanie napięcia wyjściowego C/A przy powolnej zmianie napięcia wejściowego]
+) <skoki_napiecia_oscyloskop>
+
+Zarejestrowany na oscyloskopie przebieg przedstawia ładną strukturę schodkową. Wysokość pojedynczego schodka możemy obliczyć z:
+$ "LSB" = 5.0 "V" / 255 approx 19.61 "mV" $
+
+*Porównanie z 3-bitowym przetwornikiem FLASH:*
+Zestawiając ten układ z 3-bitowym przetwornikiem FLASH analizowanym w punkcie 3.3 (gdzie $LSB = 0.71 "V"$), widok jest jasny – przejście na 8 bitów zmniejszyło krok kwantyzacji ponad 36-krotnie. Pozwoliło to pozbyć się gigantycznego błędu odwzorowania i diametralnie zwiększyło dokładność pomiarów.
+
+=== 4.4 Określenie maksymalnej i minimalnej częstotliwości pracy przetwornika
+
+W trybie kompensacyjnym czas konwersji jest zależny od mierzonego napięcia. Najdłużej na odczyt poczekamy (najgorszy wariant) przy podaniu maksymalnego napięcia na wejście (ok. 5 V) - wtedy licznik musi zliczyć od zera aż do 255. 
+
+Zmierzyliśmy czas takiego pełnego przejścia licznika (generacji całej rampy schodkowej) dla dwóch różnych nastaw generatora:
+- *Zworka na wolniejszej pozycji Z2:*
+  Okres całej schodkowej rampy, z oscyloskopu wyszedł rzędu $T_"Z2" = 29.62 "s"$.
+  Podzielenie na 255 dało czas pojedynczego taktu zegara ok. $t_"krok, Z2" = 116.15 "ms"$.
+  Wychodzi więc, że zegar taktował z częstotliwością:
+  $ f_"clock, Z2" = 255 / 29.62 approx 8.61 "Hz" $
+
+- *Zworka na szybszej pozycji Z3:*
+  Tu już poszło znacznie szybciej. Czas rampy odczytany z oscylogramu wyniósł $T_"Z3" = 3.58 "s"$.
+  Krótszy czas na pojedynczy krok: $t_"krok, Z3" = 3.58 "s" / 255 approx 14.04 "ms"$.
+  A zegar taktował dość szybko, bo z częstotliwością:
+  $ f_"clock, Z3" = 255 / 3.58 approx 71.23 "Hz" $
+
+#grid(
+  columns: 2,
+  gutter: 1em,
+  [
+    #figure(
+      image("./6_4/pomiar czasu.png", width: 100%),
+      kind: "chart",
+      supplement: [Wykres],
+      caption: [Pomiar okresu rampy dla zworki w pozycji Z2]
+    ) <pomiar_czasu_Z2>
+  ],
+  [
+    #figure(
+      image("./6_4/Z3.png", width: 100%),
+      kind: "chart",
+      supplement: [Wykres],
+      caption: [Pomiar okresu rampy dla zworki w pozycji Z3]
+    ) <pomiar_czasu_Z3>
+  ]
+)
+
+Stosunek częstotliwości taktowania zegara dla obu pozycji wynosi:
+$ f_"clock, Z3" / f_"clock, Z2" = T_"Z2" / T_"Z3" = 29.62 "s" / 3.58 "s" approx 8.27 $
+Wartość ta jest bliska teoretycznemu przełożeniu 8-krotnego podziału częstotliwości pomiędzy wyjściami dzielnika generatora zegarowego, co potwierdza poprawność pomiarów.
+
+=== 4.5 Badanie działania przetwornika opartego o rejestr SAR
+
+Przestawiliśmy układ w tryb SAR, gdzie zamiast powolnego narastania schodkowego, działa o wiele sprytniejszy algorytm podziału binarnego (sukcesywnej aproksymacji). Włączając tryb krok po kroku (`KROK`) prześledziliśmy, jak zapalają się i gasną poszczególne bity na drodze do dopasowania wyniku dla podanych napięć (ok. 1 V, 2.5 V oraz 4 V).
+
+
+// Pod punktem 1 (Dla U_we = 1.0 V)
+#v(0.5em)
+#align(center)[
+  #link("https://ujchmura-my.sharepoint.com/:v:/g/personal/mateusz_1_kaminski_student_uj_edu_pl/IQB9Zb7YZHWmQ5fsllq4MvG-Aa3QKWbDpyHSPQ370wkRvno?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=XB1PZr")[
+    #rect(fill: luma(240), stroke: 1pt + black, radius: 4pt, inset: 8pt)[
+      *Obejrzyj nagranie z konwersji krok po kroku dla $U_"we"$ = 1 V*
+    ]
+  ]
+]
+
+// Pod punktem 2 (Dla U_we = 2.5 V)
+#v(0.5em)
+#align(center)[
+  #link("https://ujchmura-my.sharepoint.com/:v:/g/personal/mateusz_1_kaminski_student_uj_edu_pl/IQArIdPRNYmkTI_aWUoMIs73AQGfzJ-U3sTmtVS2djUzr-Y?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ddeI10")[
+    #rect(fill: luma(240), stroke: 1pt + black, radius: 4pt, inset: 8pt)[
+      *Obejrzyj nagranie z konwersji krok po kroku dla $U_"we"$ = 2.5 V*
+    ]
+  ]
+]
+
+// Pod punktem 3 (Dla U_we = 4.0 V)
+#v(0.5em)
+#align(center)[
+  #link("https://ujchmura-my.sharepoint.com/:v:/g/personal/mateusz_1_kaminski_student_uj_edu_pl/IQD2uqPnQRBCS7lLkvR620eJAZxV55J42x5ElS39_RwmzGo?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=pNx0Di")[
+    #rect(fill: luma(240), stroke: 1pt + black, radius: 4pt, inset: 8pt)[
+      *Obejrzyj nagranie z konwersji krok po kroku dla $U_"we"$ = 4 V*
+    ]
+  ]
+]
+
+
+=== 4.6 Pomiar czasu konwersji w trybie SAR
+Z powodu braku czasu na zajęciach, pomiary czasu konwersji w trybie ciągłym dla przetwornika SAR nie zostały przeprowadzone.
+
+== Wnioski
+
+1. *Zgodność z teorią:* Przetwornik kompensacyjny poradził sobie znakomicie. Otrzymane z pomiarów błędy mieściły się całkowicie w dopuszczalnym marginesie jednego kroku kwantyzacji.
+2. *Rozdzielczość napięciowa:* Nasz eksperyment ustalił wymiar schodka na raptem ok. $19.6 "mV"$. Zestawiając to z ogromnymi skokami napięcia 3-bitowego przetwornika FLASH z poprzedniego punktu ($"LSB" approx 0.71 "V"$), wyraźnie widać potęgę przejścia na pełne 8 bitów - precyzja bardzo szybuje.
+3. *kompensacja vs SAR:*
+   - *Tryb kompensacyjny* na stabilny wynik dla pełnego napięcia przy wolnym zegarze trzeba było czekać pół minuty ($29.62 "s"$).
+   - *Tryb SAR* działa zauważalnie sprawniej i gwarantuje stabilny czas oddania wyniku.
+4. *Podkręcanie zegara:* Przełożenie zworki na pozycję Z3 skróciło czas liczenia około 8.27 razy.
+#v(1em)
+
+= Podsumowanie laboratorium 6
+Zrealizowano wszystkie zaplanowane punkty ćwiczenia, a uzyskane wyniki pomiarów potwierdziły teoretyczne modele działania badanych układów.
+
+W pierwszej części wykazano, że dedykowany komparator napięcia (LM311) charakteryzuje się znacznie lepszymi parametrami w zakresie przetwarzania sygnałów o wyższych częstotliwościach w porównaniu do standardowego wzmacniacza operacyjnego, który ulegał zniekształceniom.
+
+W kolejnym etapie pomyślnie przebadano 3-bitowy przetwornik analogowo-cyfrowy typu FLASH (z wykorzystaniem pamięci stałej oraz SRAM). Układ poprawnie dokonywał kwantyzacji sygnału, wykazując stabilną pracę w paśmie częstotliwości do około 100 kHz.
+
+Ostatnia część dotyczyła weryfikacji 8-bitowego przetwornika działającego w trybie kompensacyjnym oraz SAR. Osiągnięta rozdzielczość napięciowa (wyznaczona na ok. 19.6 mV) pokryła się z obliczeniami teoretycznymi, co dowiodło ponad 36-krotnego wzrostu dokładności w stosunku do 3-bitowego układu FLASH analizowanego w poprzednim zadaniu. Zaobserwowane czasy konwersji i ich zależność od częstotliwości taktowania układu również w pełni odzwierciedlały zakładane proporcje (podział częstotliwości zegara przez 8).
+
+Przeprowadzone eksperymenty zakończyły się pełnym sukcesem, a wykonane pomiary charakteryzowały się dużą zbieżnością z teorią.
+
+#read("./notatki.txt")
 
 #pagebreak()
 

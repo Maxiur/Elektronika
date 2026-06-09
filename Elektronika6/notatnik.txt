@@ -1,2 +1,14 @@
 15 sekund okres wychodzi Z2
 4 sekundy okres wychodzi Z3
+Z1 to w ogole nie mierzymy bo za dlugo
+komparator LM 311 
+pamiec stala rpp-s : uwaga!! diody na plytce swieca odwrotnie! zapalone to 0 zgaszone to 1, jebac to... napisac o tym w raporcie
+tryb kompensacji Z2:
+u_we = 1.587 V -> wyswietla na dacu 1.58
+diody: 01010001 (bin na dec to 81)
+u_we = 2.02 V -> 103 (01100111)
+SAR - szybki w porownaniu do pierwszego
+LSB -> ~19.6mV z kursora na oscylu
+SRAM -> kable na odwrót podlaczone i elegancko odwrocona amplituda
+zrobione zdjecia kursorow do sar 4.6.
+flash wywala sie powyzej 100kHz
