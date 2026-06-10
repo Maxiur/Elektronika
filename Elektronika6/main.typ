@@ -688,10 +688,10 @@ Wyniki te wykazują bardzo wysoką zgodność. W @tabela_pomiary_kompens przedst
     columns: (1.5fr, 1.2fr, 1.5fr, 1.8fr),
     align: center + horizon,
     [*Napięcie wejściowe $U_"we"$ (V)*], [*Wartość cyfrowa $D$*], [*Stan binarny*], [*Napięcie $U_"DAC"$ na wyświetlaczu (V)*],
-    [1.587], [81], [$01010001_2$], [1.58],
-    [1.620], [83], [$01010011_2$], [1.61],
-    [1.715], [88], [$01011000_2$], [1.71],
-    [2.018], [103], [$01100111_2$], [2.02]
+    [1.58], [81], [$01010001_2$], [1.58],
+    [1.62], [83], [$01010011_2$], [1.61],
+    [1.71], [88], [$01011000_2$], [1.71],
+    [2.02], [103], [$01100111_2$], [2.02]
   ),
   caption: [Wyniki pomiarów poprawności działania w trybie kompensacyjnym]
 ) <tabela_pomiary_kompens>
